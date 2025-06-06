@@ -26,4 +26,7 @@ public class DialogContent extends ReusableMethods {
 
     @FindBy(xpath = "//div[text()='Invalid username or password']")
     public WebElement invalidMessage;
+
+    @FindBy(xpath = "//span[@class='title dialog-title']")
+    public WebElement dcTitle;
 }

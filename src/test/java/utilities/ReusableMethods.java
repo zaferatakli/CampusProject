@@ -12,7 +12,7 @@ import java.time.Duration;
 
 public class ReusableMethods {
     public WebDriverWait wait = new WebDriverWait(GWD.getDriver(), Duration.ofSeconds(ConfigReader.getIntProperty("explicitWait")));
-    public Actions action;
+    public Actions action = new Actions(GWD.getDriver());
 
     public void myClick(WebElement element) {
         wait.until(ExpectedConditions.elementToBeClickable(element));
@@ -67,7 +67,7 @@ public class ReusableMethods {
         return (int) (Math.random() * range);
     }
 
-    public void Wait(int sn) {
+    public void setWait(int sn) {
         try {
             Thread.sleep(sn * 1000L);
         } catch (InterruptedException e) {

@@ -23,7 +23,7 @@ public class Login {
 
     @Then("The user verifies login successfully")
     public void theUserVerifiesLoginSuccessfully() {
-        GWD.getWait().until(ExpectedConditions.visibilityOf(dc.loginCheck));
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.loginCheck));
         dc.verifyContainsText(dc.loginCheck, "Welcome, Student_4 11A !");
     }
 
@@ -42,7 +42,7 @@ public class Login {
 
     @Then("The user verifies warning message")
     public void theUserVerifiesWarningMessage() {
-        GWD.getWait().until(ExpectedConditions.visibilityOf(dc.invalidMessage));
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.invalidMessage));
         dc.verifyContainsText(dc.invalidMessage, "Invalid username or password");
     }
 }
