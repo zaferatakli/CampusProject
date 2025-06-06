@@ -43,6 +43,12 @@ public class ConfigReader {
         properties.setProperty(key, value);
         saveProperties();
     }
+    public static void saveToConfigIfAbsent(String key, String value) {
+        if (properties.getProperty(key) == null) {
+            properties.setProperty(key, value);
+            saveProperties();
+        }
+    }
 
     public static void updateProperty(String keyword) {
         switch (keyword) {

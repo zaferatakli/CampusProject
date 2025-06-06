@@ -73,7 +73,7 @@ CampusProject/
 1. Clone the project:
 
    ```bash
-   git clone https://github.com/kullaniciniz/CampusProject.git
+   git clone https://github.com/zaferatakli/CampusProject.git
    ```
 2. Open the project with IntelliJ IDEA or your preferred IDE.
 3. Load Maven dependencies:
@@ -88,9 +88,11 @@ CampusProject/
 
 To run all tests:
 
-```bash
-mvn test
-```
+   ```bash
+     mvn test
+   ```
+
+---
 
 To run specific tests using an XML file, navigate to the related runner file and execute it.
 
@@ -167,11 +169,17 @@ There are currently no known bugs. Any new bugs can be reported via the GitHub I
 
 ## 👥 Project Team
 
-| Name         | Role                     | Responsible Modules |
-|--------------|--------------------------|---------------------|
-| Zafer Atakli | Project Lead/QA Engineer |                     |
-| ...          | QA Engineer              |                     |
-| ...          | QA Engineer              |                     |
+| Name             | Role                     | Responsible Modules |
+|------------------|--------------------------|---------------------|
+| Zafer Atakli     | Project Lead/QA Engineer | US_01,03,23,24,25   |
+| Tugba Kilic      | QA Engineer              | US_08,09,10         |
+| Nuri Öztürk      | QA Engineer              | US_04,05,06,07      |
+| Rıfat Batır      | QA Engineer              | US_11,12            |
+| Yiğit Çam        | QA Engineer              | US_18,19,20         |
+| Azim Korkmaz     | QA Engineer              | US_21,22            |
+| Mert Can Ozdemir | QA Engineer              | US_16,17            |
+| Sibel Oztemel    | QA Engineer              | US_02,13            |
+| Eren Icinozbebek | QA Engineer              | US_14,15            |
 
 ---
 
