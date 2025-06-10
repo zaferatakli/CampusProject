@@ -41,10 +41,10 @@ public class TopNav extends ReusableMethods {
     @FindBy(xpath = "(//div[@class='cdk-overlay-pane'])[2]//button")
     public List<WebElement> messagingSubMenuList;
 
-    @FindBy(xpath = "//span[text()='Send Message']")
+    @FindBy(xpath = "//span[text()='Send']")
     public WebElement sendMessageButton;
 
-    @FindBy(xpath = "//div[@role='menu']/div/button")
+    @FindBy(xpath = "(//*[@class='mdc-button__label'])[6]")
     public List<WebElement> hamburgerMenuSubMenus;
 
     @FindBy(xpath = "//span[text()='My Finance']")
@@ -55,6 +55,9 @@ public class TopNav extends ReusableMethods {
 
     @FindBy(xpath = "//span[text()='Outbox']")
     public WebElement outboxButton;
+
+    @FindBy(xpath = "//span[text()='Trash']")
+    public WebElement trashButton;
 
     @FindBy(xpath = "//user-message-bell//button")
     public WebElement  newMessageIcon;
@@ -100,6 +103,34 @@ public class TopNav extends ReusableMethods {
 
     @FindBy(xpath = "//button[@aria-label='Close dialog']")
     public WebElement escapeButton;
+
+    @FindBy(xpath="//input[@placeholder='Receivers']")
+    public WebElement receiversInput;
+
+    @FindBy(xpath ="//input[@placeholder='Subject']")
+    public WebElement subjectInput;
+
+    @FindBy(xpath ="//span[text()='Attach Files...']")
+    public WebElement attachInput;
+
+    @FindBy(xpath ="//span[text()='From Local']")
+    public WebElement fromLocalInput;
+
+    @FindBy(xpath ="//(//input[@type='checkbox'])[2]")
+    public WebElement assignmentInput;
+
+    @FindBy(xpath ="//span[text()='Select']")
+    public WebElement selectButton;
+
+    @FindBy(xpath ="(//span[@class='mat-focus-indicator'])[20]")
+    public WebElement moveToTrashButton;
+
+    @FindBy(xpath ="//span[text()=' Yes ']")
+    public WebElement yesButton;
+
+    @FindBy (xpath ="//*[contains(text(), 'Message successfully')]")
+    public WebElement successMessage;
+
 
     public WebElement getWebElement(String element) {
         switch (element) {
