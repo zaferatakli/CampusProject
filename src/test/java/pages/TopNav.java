@@ -132,8 +132,8 @@ public class TopNav extends ReusableMethods {
     public WebElement successMessage;
 
 
-    public WebElement getWebElement(String element) {
-        switch (element) {
+    public WebElement getWebElement(String tnElement) {
+        switch (tnElement) {
             case "sendMessage": return this.sendMessageButton;
             case "outboxMessage": return this.outboxButton;
             case "newMessageIcon": return this.newMessageIcon;
