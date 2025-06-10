@@ -150,8 +150,8 @@ public class TopNav extends ReusableMethods {
     @FindBy(xpath = "(//*[@icon='trash-restore'])[1]")
     public WebElement restoreButton;
 
-    public WebElement getWebElement(String element) {
-        switch (element) {
+    public WebElement getWebElement(String tnElement) {
+        switch (tnElement) {
             case "sendMessage": return this.sendMessageButton;
             case "outboxMessage": return this.outboxButton;
             case "newMessageIcon": return this.newMessageIcon;

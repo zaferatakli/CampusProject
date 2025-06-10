@@ -1,17 +1,20 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.*;
 import org.openqa.selenium.support.PageFactory;
 import utilities.GWD;
 import utilities.ReusableMethods;
 
+import java.util.List;
+
 public class DialogContent extends ReusableMethods {
 
     public DialogContent() {
         PageFactory.initElements(GWD.getDriver(), this);
     }
-
+    /// US-001,003,023,024,025 locators
     @FindBy(css = "input[formcontrolname='username']")
     public WebElement usernameField;
 
@@ -29,4 +32,95 @@ public class DialogContent extends ReusableMethods {
 
     @FindBy(xpath = "//span[@class='title dialog-title']")
     public WebElement dcTitle;
+
+    @FindBy(xpath = "(//div/button)[8]")
+    public WebElement previousButton;
+
+    @FindBy(xpath = "(//div/button)[9]")
+    public WebElement todayButton;
+
+    @FindBy(xpath = "(//div/button)[10]")
+    public WebElement nextButton;
+
+    @FindBy(css = "div[fxlayout='row'] h4 strong")
+    public WebElement dateCheck;
+
+    @FindBy(xpath = "(//table)[1]")
+    public WebElement weeklyPlanTableCheck;
+
+    @FindBy(xpath = "//*[text()=' P ']")
+    public WebElement publishedIcon;
+
+    @FindBy(xpath = "//*[text()=' Published ']")
+    public WebElement publishedDescription;
+
+    @FindBy(xpath = "//*[text()=' S ']")
+    public WebElement startedIcon;
+
+    @FindBy(xpath = "//*[text()=' Started ']")
+    public WebElement startedDescription;
+
+    @FindBy(xpath = "//*[text()=' E ']")
+    public WebElement endedIcon;
+
+    @FindBy(xpath = "//*[text()=' Ended ']")
+    public WebElement endedDescription;
+
+    @FindBy(xpath = "//*[text()=' C ']")
+    public WebElement cancelledIcon;
+
+    @FindBy(xpath = "//*[text()=' Cancelled ']")
+    public WebElement cancelledDescription;
+
+    @FindBy(xpath = "//*[contains(text(),' Weekly Course Plan ')]")
+    public WebElement weeklyCoursePlanButton;
+
+    @FindBy(xpath = "(//*[text()=' Calendar '])[2]")
+    public WebElement calendarPageButton;
+
+    @FindBy(xpath = "//table[@role='grid']")
+    public WebElement calendarTableCheck;
+
+    @FindBy(xpath = "//td/div")
+    public List<WebElement> lessonsButton;
+
+    @FindBy(xpath = "//mat-panel-description[@class='mat-expansion-panel-header-description']")
+    public WebElement lessonMessage;
+
+    @FindBy(xpath = "//span[@class='title dialog-title']")
+    public WebElement popUpLessonTitle;
+
+    @FindBy(xpath = "//span[contains(text(),'Teacher')]")
+    public List<WebElement> lessonTeacherName;
+
+    @FindBy(xpath = "//div[contains(text(),'E')]")
+    public List<WebElement> lessonStatusIcon;
+
+
+
+
+
+
+
+    public WebElement getWebElement(String dcElement) {
+        switch (dcElement) {
+            case "previousButton": return this.previousButton;
+            case "todayButton": return this.todayButton;
+            case "nextButton": return this.nextButton;
+        }
+        return null;
+    }
+
+    public List<WebElement> getWebElements(String dcElement) {
+        switch (dcElement) {
+            case "lessonsButton": return this.lessonsButton;
+            case "lessonTeacherName": return this.lessonTeacherName;
+            case "lessonStatusIcon": return this.lessonStatusIcon;
+        }
+        return null;
+    }
+
+    public List<WebElement> getCoursesByStatus(String status) {
+        return GWD.getDriver().findElements(By.xpath("//td/div[contains(text(),'" + status + "')]"));
+    }
 }

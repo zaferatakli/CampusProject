@@ -70,7 +70,7 @@ public class HeaderMenuCheck {
 
     @Then("The user verifies items in the upper right corner")
     public void theUserVerifiesItemsInTheUpperRightCorner() {
-        tn.clickAndEsc(tn.notificationButton,dc.dcTitle);
+        tn.clickAndClose(tn.notificationButton,dc.dcTitle);
         tn.wait.until(ExpectedConditions.visibilityOf(tn.newMessageIcon));
         tn.wait.until(ExpectedConditions.elementToBeClickable(tn.newMessageIcon));
         tn.myClick(tn.newMessageIcon);
@@ -83,13 +83,13 @@ public class HeaderMenuCheck {
         tn.wait.until(ExpectedConditions.urlContains("my-certificates"));
 
         tn.myClick(tn.profileButton);
-        tn.clickAndEsc(tn.myFiles, dc.dcTitle);
+        tn.clickAndClose(tn.myFiles, dc.dcTitle);
 
         tn.myClick(tn.profileButton);
-        tn.clickAndEsc(tn.changePassword, dc.dcTitle);
+        tn.clickAndClose(tn.changePassword, dc.dcTitle);
         tn.myClick(tn.escapeButton);
 
         tn.myClick(tn.profileButton);
-        tn.clickAndEsc(tn.profileSettings, dc.dcTitle);
+        tn.clickAndClose(tn.profileSettings, dc.dcTitle);
     }
 }

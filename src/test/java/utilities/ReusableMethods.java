@@ -20,7 +20,7 @@ public class ReusableMethods {
         element.click();
     }
 
-    public void clickAndEsc(WebElement clickElement, WebElement assertElement) {
+    public void clickAndClose(WebElement clickElement, WebElement assertElement) {
         wait.until(ExpectedConditions.visibilityOf(clickElement));
         wait.until(ExpectedConditions.elementToBeClickable(clickElement));
         jsClick(clickElement);
@@ -61,10 +61,6 @@ public class ReusableMethods {
         wait.until(ExpectedConditions.elementToBeClickable(element));
         JavascriptExecutor js = (JavascriptExecutor) GWD.getDriver();
         js.executeScript("arguments[0].click();", element);
-    }
-
-    public int randomGenerator(int range) {
-        return (int) (Math.random() * range);
     }
 
     public void setWait(int sn) {
