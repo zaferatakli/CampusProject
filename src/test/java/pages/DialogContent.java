@@ -14,6 +14,7 @@ public class DialogContent extends ReusableMethods {
     public DialogContent() {
         PageFactory.initElements(GWD.getDriver(), this);
     }
+
     /// US-001,003,023,024,025 locators
     @FindBy(css = "input[formcontrolname='username']")
     public WebElement usernameField;
@@ -96,26 +97,35 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "//div[contains(text(),'E')]")
     public List<WebElement> lessonStatusIcon;
 
+    @FindBy(xpath = "//*[text()=' E-mail is required ']")
+    public WebElement emailRequiredMessage;
 
-
+    @FindBy(xpath = "//*[text()=' Password is required ']")
+    public WebElement passwordRequiredMessage;
 
 
 
 
     public WebElement getWebElement(String dcElement) {
         switch (dcElement) {
-            case "previousButton": return this.previousButton;
-            case "todayButton": return this.todayButton;
-            case "nextButton": return this.nextButton;
+            case "previousButton":
+                return this.previousButton;
+            case "todayButton":
+                return this.todayButton;
+            case "nextButton":
+                return this.nextButton;
         }
         return null;
     }
 
     public List<WebElement> getWebElements(String dcElement) {
         switch (dcElement) {
-            case "lessonsButton": return this.lessonsButton;
-            case "lessonTeacherName": return this.lessonTeacherName;
-            case "lessonStatusIcon": return this.lessonStatusIcon;
+            case "lessonsButton":
+                return this.lessonsButton;
+            case "lessonTeacherName":
+                return this.lessonTeacherName;
+            case "lessonStatusIcon":
+                return this.lessonStatusIcon;
         }
         return null;
     }

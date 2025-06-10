@@ -45,4 +45,34 @@ public class Login {
         dc.wait.until(ExpectedConditions.visibilityOf(dc.invalidMessage));
         dc.verifyContainsText(dc.invalidMessage, "Invalid username or password");
     }
+
+    @When("The user types invalid username and valid password")
+    public void theUserTypesInvalidUsernameAndValidPassword() {
+        ConfigReader.updateProperty("invalidUsername");
+        dc.mySendKeys(dc.usernameField, ConfigReader.getProperty("invalidUsername"));
+        dc.mySendKeys(dc.passwordField, ConfigReader.getProperty("password"));
+    }
+
+    @When("The user types valid username and invalid password")
+    public void theUserTypesValidUsernameAndInvalidPassword() {
+        dc.mySendKeys(dc.usernameField, ConfigReader.getProperty("username"));
+        ConfigReader.updateProperty("invalidPassword");
+        dc.mySendKeys(dc.passwordField, ConfigReader.getProperty("invalidPassword"));
+    }
+
+    @When("The user types empty username and password")
+    public void theUserTypesEmptyUsernameAndPassword() {
+        dc.usernameField.clear();
+        dc.mySendKeys(dc.usernameField, "");
+        dc.passwordField.clear();
+        dc.mySendKeys(dc.passwordField, "");
+    }
+
+    @Then("The user verifies required message")
+    public void theUserVerifiesRequiredMessage() {
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.emailRequiredMessage));
+        dc.verifyContainsText(dc.emailRequiredMessage, "E-mail is required");
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.passwordRequiredMessage));
+        dc.verifyContainsText(dc.passwordRequiredMessage, "Password is required");
+    }
 }
