@@ -1,11 +1,9 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.*;
 import org.openqa.selenium.support.PageFactory;
-import utilities.GWD;
-import utilities.ReusableMethods;
+import utilities.*;
 
 import java.util.List;
 
@@ -103,8 +101,47 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "//*[text()=' Password is required ']")
     public WebElement passwordRequiredMessage;
 
+    @FindBy(xpath="(//button[@matbadgecolor='accent'])[2]")
+    public WebElement receiversButton;
 
+    @FindBy(xpath ="(//*[text()='User'])[10]")
+    public WebElement receiversCheckbox;
 
+    @FindBy(xpath ="//span[text()='Add & Close']")
+    public WebElement addAndCloseButton;
+
+    @FindBy(xpath ="//input[@placeholder='Subject']")
+    public WebElement subjectInput;
+
+    @FindBy(xpath ="//iframe[@class='tox-edit-area__iframe']")
+    public WebElement messageTextIframe;
+
+    @FindBy(xpath ="//span[text()='Attach Files...']")
+    public WebElement attachInput;
+
+    @FindBy(xpath ="//span[text()='From My Files']")
+    public WebElement fromMyFiles;
+
+    @FindBy(xpath = "(//*[text()=' Info '])[1]")
+    public WebElement selectMessageButton;
+
+    @FindBy(xpath ="//*[text()='Move to Trash']")
+    public WebElement moveToTrashButton;
+
+    @FindBy(xpath ="//span[text()=' Yes ']")
+    public WebElement yesButton;
+
+    @FindBy (xpath ="//*[contains(text(), 'Message successfully')]")
+    public WebElement successMessage;
+
+    @FindBy (xpath = "//body[@id='tinymce']")
+    public WebElement messageTextBody;
+
+    @FindBy(xpath = "//span[text()='Send']")
+    public WebElement sendButton;
+
+    @FindBy(xpath = "(//*[@icon='trash-restore'])[1]")
+    public WebElement restoreButton;
 
     public WebElement getWebElement(String dcElement) {
         switch (dcElement) {
