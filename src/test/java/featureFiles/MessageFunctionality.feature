@@ -1,4 +1,4 @@
-Feature: Messages Functionality
+Feature: Message Functionality
 
   Background:
     Given Navigate to Campus
@@ -16,7 +16,7 @@ Feature: Messages Functionality
     And The user choice the recipient's name
     And The user enter the subject of the message
     And The user enters the message content
-#   And The user attaches a file if necessary
+    And The user attaches a file if necessary
     And The user clicks on the Send button
 
   Scenario:Messaging Delete
