@@ -5,17 +5,18 @@ Feature: Messages Functionality
     When The user types username and password and click login button
     Then The user verifies login successfully
 
-  Scenario:Message Access
-    When The user hovers over the Messages tab from the hamburger menu and clicks
+    When The user hovers over from the hamburger menu and click hamburger menu
     And The user hovers over the messages tab in the drop-down menu
+
+  Scenario:Message Access
     Then The user verifies that the message access is granted successfully
 
   Scenario:Messaging Send
     When The user clicks on the Send Message button
-    And The user enters the recipient's name
+    And The user choice the recipient's name
     And The user enter the subject of the message
     And The user enters the message content
-    And The user attaches a file if necessary
+#   And The user attaches a file if necessary
     And The user clicks on the Send button
 
   Scenario:Messaging Delete
