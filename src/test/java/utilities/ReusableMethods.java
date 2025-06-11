@@ -75,12 +75,14 @@ public class ReusableMethods {
         }
     }
 
-    public void pressTab() {
+    public void pressTab(int count) {
         try {
-            robot = new Robot();
-            robot.delay(500);
-            robot.keyPress(KeyEvent.VK_TAB);
-            robot.keyRelease(KeyEvent.VK_TAB);
+            for (int i = 1; i <= count; i++) {
+                robot = new Robot();
+                robot.delay(500);
+                robot.keyPress(KeyEvent.VK_TAB);
+                robot.keyRelease(KeyEvent.VK_TAB);
+            }
         } catch (AWTException e) {
             e.printStackTrace();
         }
