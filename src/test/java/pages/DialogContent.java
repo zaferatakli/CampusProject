@@ -175,6 +175,53 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "(//*[@icon='trash-restore'])[1]")
     public WebElement restoreButton;
 
+    // Finance Functionality Locators
+
+    @FindBy(xpath = "//button[@matbadgecolor='accent']/span[@class='mat-focus-indicator']")
+    public WebElement viewButton;
+
+    @FindBy(css = "#mat-radio-4-input")
+    public WebElement stripeButton;
+
+    @FindBy (xpath = "//span[contains(text(), 'Pay in full')]")
+    public WebElement payInFullButton;
+
+    @FindBy (xpath = "//span[contains(text(), 'Create Installment')]")
+    public WebElement createInstallmentButton;
+
+    @FindBy (xpath = "//span[text()= 'Pay']")
+    public WebElement payButton;
+
+    @FindBy(xpath = "input[id='ms-currency-field-0']")
+    public WebElement amountInput;
+
+    @FindBy(xpath = "//ms-button[@icon='wallet']/button")
+    public WebElement paymentButton;    // Amount yani ödeme butonu
+
+    @FindBy (xpath = " //h2[text()=' Pay  $ '] ")
+    public WebElement cardPaymentTitle;
+
+    @FindBy(css = "#Field-numberInput")
+    public WebElement cardNumberInput;
+
+    @FindBy(css = "#Field-expiryInput")
+    public WebElement cardExpiryDateInput;
+
+    @FindBy(css = "#Field-cvcInput")
+    public WebElement cardCVCInput;
+
+    @FindBy (css = "#Field-countryInput")
+    public WebElement cardCountryInput;
+
+    @FindBy(xpath = "//div[@class='StripeElement']/following-sibling::button")
+    public WebElement paymentsButton; // Card bilgilerini girdikten sonra ödeme butonu
+
+    @FindBy(xpath = "//div[contains(text(), 'Payment successfully created')]")
+    public WebElement paymentSuccessMessage;
+
+    @FindBy(xpath = "//tfoot[@role='rowgroup']/tr[1]/td[9]")
+    public WebElement totalBalance;
+
     public WebElement getWebElement(String dcElement) {
         switch (dcElement) {
             case "previousButton":
