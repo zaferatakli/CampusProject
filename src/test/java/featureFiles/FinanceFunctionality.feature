@@ -20,3 +20,9 @@ Feature: Finance Functionality
     When The user clicks the New Message button in the top right corner of the toolbar
     Then The user views the received message in the area
 
+  Scenario: Pay a course installment
+
+
+  Scenario: Download the payment information from the checkout page to your computer in excel or pdf format
+
+
