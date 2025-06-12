@@ -21,8 +21,8 @@ Feature: Course Access on Calender Functionality
     Then  The user should find navigation buttons to move between dates (Previous, Today, Next)
     When  The user taps on the navigation controls
       | previousButton |
-      | todayButton    |
       | nextButton     |
+      | todayButton    |
 
     Given The user remains on the Weekly Course Plan page
     Then  The user is presented with a list of their assigned courses

@@ -80,8 +80,8 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "//table[@role='grid']")
     public WebElement calendarTableCheck;
 
-    @FindBy(xpath = "//td/div")
-    public List<WebElement> lessonsButton;
+    @FindBy(xpath = "(//td/div//span[contains(text(),'11A')])[1]")
+    public WebElement lessonsButton;
 
     @FindBy(xpath = "//mat-panel-description[@class='mat-expansion-panel-header-description']")
     public WebElement lessonMessage;
@@ -92,8 +92,40 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "//span[contains(text(),'Teacher')]")
     public List<WebElement> lessonTeacherName;
 
-    @FindBy(xpath = "//div[contains(text(),'E')]")
-    public List<WebElement> lessonStatusIcon;
+    @FindBy(xpath = "//span[@class='mat-badge-content mat-badge-active'][text()='E']")
+    public List<WebElement> endedLessonIcons;
+
+    @FindBy(xpath = "//span[@class='mat-badge-content mat-badge-active'][text()='P']")
+    public List<WebElement> publishedLessonIcons;
+
+    @FindBy(xpath = "//span[@class='mat-badge-content mat-badge-active'][text()='S']")
+    public List<WebElement> startedLessonIcons;
+
+    @FindBy(xpath = "//span[@class='mat-badge-content mat-badge-active'][text()='C']")
+    public List<WebElement> cancelledLessonIcons;
+
+    @FindBy(xpath = "//span[text()='Recording']")
+    public WebElement recordingButton;
+
+    @FindBy(xpath = "//button[@title='Play Video']")
+    public WebElement playVideoButton;
+
+    @FindBy(xpath = "(//div[@class='vjs-time-tooltip'])[2]")
+    public WebElement videoTimer;
+
+    @FindBy(xpath = "(//button[@aria-label='Close dialog'])[2]")
+    public WebElement videoCloseButton;
+
+    @FindBy(tagName = "iframe")
+    public WebElement videoIframe;
+
+
+
+
+
+
+    @FindBy(xpath = "//*[contains(text(),'not been started')]")
+    public WebElement lessonMessageNotStarted;
 
     @FindBy(xpath = "//*[text()=' E-mail is required ']")
     public WebElement emailRequiredMessage;
@@ -157,17 +189,15 @@ public class DialogContent extends ReusableMethods {
 
     public List<WebElement> getWebElements(String dcElement) {
         switch (dcElement) {
-            case "lessonsButton":
-                return this.lessonsButton;
-            case "lessonTeacherName":
-                return this.lessonTeacherName;
-            case "lessonStatusIcon":
-                return this.lessonStatusIcon;
+            case "endedLessonIcons":
+                return this.endedLessonIcons;
+            case "publishedLessonIcons":
+                return this.publishedLessonIcons;
+            case "startedLessonIcons":
+                return this.startedLessonIcons;
+            case "cancelledLessonIcons":
+                return this.cancelledLessonIcons;
         }
         return null;
-    }
-
-    public List<WebElement> getCoursesByStatus(String status) {
-        return GWD.getDriver().findElements(By.xpath("//td/div[contains(text(),'" + status + "')]"));
     }
 }

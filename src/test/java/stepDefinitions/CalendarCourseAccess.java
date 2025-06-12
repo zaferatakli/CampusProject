@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pages.DialogContent;
 import pages.TopNav;
+import utilities.GWD;
 
 import java.util.List;
 
@@ -124,16 +125,10 @@ public class CalendarCourseAccess {
 
     @When("The user selects one of the courses")
     public void theUserSelectsOneOfTheCourses() {
-        try {
-            List<WebElement> lessonsButton = dc.lessonsButton;
-
-            if (!lessonsButton.isEmpty()) {
-                int randomIndex = (int) (Math.random() * lessonsButton.size());
-                dc.myClick(lessonsButton.get(randomIndex));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        GWD.getDriver().navigate().refresh();
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.lessonsButton));
+        dc.wait.until(ExpectedConditions.elementToBeClickable(dc.lessonsButton));
+        dc.jsClick(dc.lessonsButton);
     }
 
     @Then("The user is shown detailed information for that specific course")
