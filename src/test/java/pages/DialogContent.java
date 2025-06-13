@@ -175,7 +175,7 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "(//*[@icon='trash-restore'])[1]")
     public WebElement restoreButton;
 
-    // Finance Functionality Locators
+    /// Finance Functionality Locators
 
     @FindBy(xpath = "//button[@matbadgecolor='accent']/span[@class='mat-focus-indicator']")
     public WebElement viewButton;
@@ -221,6 +221,12 @@ public class DialogContent extends ReusableMethods {
 
     @FindBy(xpath = "//tfoot[@role='rowgroup']/tr[1]/td[9]")
     public WebElement totalBalance;
+
+    @FindBy(xpath = " //span[text()=' Students Fees ']")
+    public WebElement studentFees;
+
+
+
 
     public WebElement getWebElement(String dcElement) {
         switch (dcElement) {
