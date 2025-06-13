@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.Locale;
@@ -18,11 +17,11 @@ public class GWD {
         System.setProperty("user.language", "EN");
 
         if (threadDriver.get() == null) {
-            threadBrowserName.set("chrome");
-        }
 
-        if (threadDriver.get() == null) {
-            switch (threadBrowserName.get()) {
+            if (threadBrowserName.get() == null) {
+                threadBrowserName.set(ConfigReader.getProperty("browser"));
+            }
+            switch (threadBrowserName.get().toLowerCase()) {
                 case "firefox":
                     threadDriver.set(new FirefoxDriver());
                     break;
@@ -30,11 +29,15 @@ public class GWD {
                     threadDriver.set(new EdgeDriver());
                     break;
                 case "chrome":
+                default:
                     threadDriver.set(new ChromeDriver());
                     break;
             }
+
             threadDriver.get().manage().window().maximize();
-            threadDriver.get().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(ConfigReader.getIntProperty("pageLoadTimeout")));
+            threadDriver.get().manage().timeouts().pageLoadTimeout(
+                    Duration.ofSeconds(ConfigReader.getIntProperty("pageLoadTimeout"))
+            );
         }
         return threadDriver.get();
     }
@@ -48,9 +51,7 @@ public class GWD {
 
         if (threadDriver.get() != null) {
             threadDriver.get().quit();
-            WebDriver driver = threadDriver.get();
-            driver = null;
-            threadDriver.set(driver);
+            threadDriver.remove();
         }
     }
 }
