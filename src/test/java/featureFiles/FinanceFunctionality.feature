@@ -5,6 +5,7 @@ Feature: Finance Functionality
     When The user types username and password and click login button
     Then The user verifies login successfully
     Given The user has been redirected to the my finance page
+    And The page is checked
 
   Scenario: Payment Feature on My Finance Page
     When The user clicks on the student information field
@@ -21,6 +22,7 @@ Feature: Finance Functionality
     Then The user views the received message in the area
 
   Scenario: Pay a course installment
+
 
 
   Scenario: Download the payment information from the checkout page to your computer in excel or pdf format

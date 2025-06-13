@@ -1,6 +1,5 @@
 package stepDefinitions;
 
-import com.github.javafaker.Faker;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
@@ -74,5 +73,11 @@ public class FinanceFunctionality {
 
     @Then("The user views the received message in the area")
     public void theUserViewsTheReceivedMessageInTheArea() {
+    }
+
+    @And("The page is checked")
+    public void thePageIsChecked() {
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.studentFees));
+        Assert.assertTrue(dc.studentFees.isDisplayed());
     }
 }
