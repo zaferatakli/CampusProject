@@ -169,8 +169,8 @@ Test results are automatically generated in the following folders:
 ---
 
 ## 💥 Bug Reports
-- 1. **US-023 Calendar - Course Status**: The course status and details is not displayed correctly.
-- 2. **US-024 Calendar - Prevent Access to Unstarted Course**: The system allows access to unstarted courses.
+- **US-023 Calendar - Course Status**: The course status and details is not displayed correctly.
+- **US-024 Calendar - Prevent Access to Unstarted Course**: The system allows access to unstarted courses.
 - Bug Report: **src/bugReportsPDF/US023-US024_BugTicket.pdf**
 
 <img src="src/bugGIF/CalenderCourseAccessAndControlBug.gif" alt="" width="800" height="500"/>
