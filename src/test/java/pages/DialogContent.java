@@ -127,10 +127,10 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "//*[contains(text(),'not been started')]")
     public WebElement lessonMessageNotStarted;
 
-    @FindBy(xpath = "//*[text()=' E-mail is required ']")
+    @FindBy(xpath = "(//div//mat-error)[1]")
     public WebElement emailRequiredMessage;
 
-    @FindBy(xpath = "//*[text()=' Password is required ']")
+    @FindBy(xpath = "(//div//mat-error)[2]")
     public WebElement passwordRequiredMessage;
 
     @FindBy(xpath="(//button[@matbadgecolor='accent'])[2]")
