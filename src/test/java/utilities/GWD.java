@@ -40,7 +40,6 @@ public class GWD {
     }
 
     public static void tearDown() {
-
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
@@ -53,9 +52,5 @@ public class GWD {
             driver = null;
             threadDriver.set(driver);
         }
-    }
-
-    public static WebDriverWait getWait() {
-        return new WebDriverWait(getDriver(), Duration.ofSeconds(ConfigReader.getIntProperty("explicitWait")));
     }
 }
