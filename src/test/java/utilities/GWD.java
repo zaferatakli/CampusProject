@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
 import java.time.Duration;
 import java.util.Locale;
@@ -25,6 +26,9 @@ public class GWD {
                 case "firefox":
                     threadDriver.set(new FirefoxDriver());
                     break;
+                case "safari":
+                    threadDriver.set(new SafariDriver());
+                    break;
                 case "edge":
                     threadDriver.set(new EdgeDriver());
                     break;
@@ -35,9 +39,7 @@ public class GWD {
             }
 
             threadDriver.get().manage().window().maximize();
-            threadDriver.get().manage().timeouts().pageLoadTimeout(
-                    Duration.ofSeconds(ConfigReader.getIntProperty("pageLoadTimeout"))
-            );
+            threadDriver.get().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(ConfigReader.getIntProperty("pageLoadTimeout")));
         }
         return threadDriver.get();
     }
