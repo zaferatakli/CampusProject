@@ -175,6 +175,19 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "(//*[@icon='trash-restore'])[1]")
     public WebElement restoreButton;
 
+    @FindBy(xpath ="(//span[@class='mdc-tab__text-label'])[3]" )
+    public WebElement attendanceExcusesTab;
+
+    @FindBy(xpath = "(//ms-add-button[@id='ms-button-0']//span)[1]")
+    public  WebElement addExcuseButton;
+
+
+    @FindBy(xpath = "//textarea[@id='ms-textarea-field-0']")
+    public WebElement excuseMessageTextarea;
+
+    @FindBy(xpath = "//div[text()='Attendance Excuse successfully sent']")
+    public WebElement excuseSuccessMessage;
+
     public WebElement getWebElement(String dcElement) {
         switch (dcElement) {
             case "previousButton":
