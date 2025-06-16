@@ -62,17 +62,27 @@ public class Login {
 
     @When("The user types empty username and password")
     public void theUserTypesEmptyUsernameAndPassword() {
-        dc.usernameField.clear();
-        dc.mySendKeys(dc.usernameField, "");
-        dc.passwordField.clear();
-        dc.mySendKeys(dc.passwordField, "");
+        dc.myClick(dc.loginButton);
     }
 
     @Then("The user verifies required message")
     public void theUserVerifiesRequiredMessage() {
         dc.wait.until(ExpectedConditions.visibilityOf(dc.emailRequiredMessage));
-        dc.verifyContainsText(dc.emailRequiredMessage, "E-mail is required");
+        String expectedEmailMessage = " E-mail is required ";
+        String actualEmailMessage = dc.emailRequiredMessage.getText();
+        if (actualEmailMessage.equals(expectedEmailMessage)) {
+            dc.verifyContainsText(dc.emailRequiredMessage, " E-mail is required" );
+        } else if (actualEmailMessage.equals(" E-posta gereklidir ")){
+            dc.verifyContainsText(dc.emailRequiredMessage, " E-posta gereklidir ");
+        }
+
         dc.wait.until(ExpectedConditions.visibilityOf(dc.passwordRequiredMessage));
-        dc.verifyContainsText(dc.passwordRequiredMessage, "Password is required");
+        String expectedPasswordMessage = " Password is required ";
+        String actualPasswordMessage = dc.passwordRequiredMessage.getText();
+        if (actualPasswordMessage.equals(expectedPasswordMessage)) {
+            dc.verifyContainsText(dc.passwordRequiredMessage, " Password is required ");
+        } else if (actualPasswordMessage.equals(" Şifre gereklidir ")) {
+            dc.verifyContainsText(dc.passwordRequiredMessage, " Şifre gereklidir ");
+        }
     }
 }

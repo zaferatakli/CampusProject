@@ -120,17 +120,13 @@ public class DialogContent extends ReusableMethods {
     public WebElement videoIframe;
 
 
-
-
-
-
     @FindBy(xpath = "//*[contains(text(),'not been started')]")
     public WebElement lessonMessageNotStarted;
 
-    @FindBy(xpath = "//*[text()=' E-mail is required ']")
+    @FindBy(xpath = "(//div//mat-error)[1]")
     public WebElement emailRequiredMessage;
 
-    @FindBy(xpath = "//*[text()=' Password is required ']")
+    @FindBy(xpath = "(//div//mat-error)[2]")
     public WebElement passwordRequiredMessage;
 
     @FindBy(xpath="(//button[@matbadgecolor='accent'])[2]")
@@ -175,7 +171,59 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "(//*[@icon='trash-restore'])[1]")
     public WebElement restoreButton;
 
-    @FindBy(xpath ="(//span[@class='mdc-tab__text-label'])[3]" )
+    /// Finance Functionality Locators
+
+    @FindBy(xpath = "//button[@matbadgecolor='accent']/span[@class='mat-focus-indicator']")
+    public WebElement viewButton;
+
+    @FindBy(css = "#mat-radio-4-input")
+    public WebElement stripeButton;
+
+    @FindBy (xpath = "//span[contains(text(), 'Pay in full')]")
+    public WebElement payInFullButton;
+
+    @FindBy (xpath = "//span[contains(text(), 'Create Installment')]")
+    public WebElement createInstallmentButton;
+
+    @FindBy (xpath = "//span[text()= 'Pay']")
+    public WebElement payButton;
+
+    @FindBy(xpath = "input[id='ms-currency-field-0']")
+    public WebElement amountInput;
+
+    @FindBy(xpath = "//ms-button[@icon='wallet']/button")
+    public WebElement paymentButton;    // Amount yani ödeme butonu
+
+    @FindBy (xpath = " //h2[text()=' Pay  $ '] ")
+    public WebElement cardPaymentTitle;
+
+    @FindBy(css = "#Field-numberInput")
+    public WebElement cardNumberInput;
+
+    @FindBy(css = "#Field-expiryInput")
+    public WebElement cardExpiryDateInput;
+
+    @FindBy(css = "#Field-cvcInput")
+    public WebElement cardCVCInput;
+
+    @FindBy (css = "#Field-countryInput")
+    public WebElement cardCountryInput;
+
+    @FindBy(xpath = "//div[@class='StripeElement']/following-sibling::button")
+    public WebElement paymentsButton; // Card bilgilerini girdikten sonra ödeme butonu
+
+    @FindBy(xpath = "//div[contains(text(), 'Payment successfully created')]")
+    public WebElement paymentSuccessMessage;
+
+    @FindBy(xpath = "//tfoot[@role='rowgroup']/tr[1]/td[9]")
+    public WebElement totalBalance;
+
+    @FindBy(xpath = " //span[text()=' Students Fees ']")
+    public WebElement studentFees;
+
+/// Attandance locators
+  
+   @FindBy(xpath ="(//span[@class='mdc-tab__text-label'])[3]" )
     public WebElement attendanceExcusesTab;
 
     @FindBy(xpath = "(//ms-add-button[@id='ms-button-0']//span)[1]")
@@ -187,6 +235,11 @@ public class DialogContent extends ReusableMethods {
 
     @FindBy(xpath = "//div[text()='Attendance Excuse successfully sent']")
     public WebElement excuseSuccessMessage;
+
+
+  
+  
+  
 
     public WebElement getWebElement(String dcElement) {
         switch (dcElement) {

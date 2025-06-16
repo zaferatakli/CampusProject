@@ -35,20 +35,27 @@ POM)** structure. User stories, scenarios, and test steps are thoroughly documen
 ```plaintext
 CampusProject/
 ├── src/
-│   └── test/
-│       ├── java/
-│       │   ├── featureFiles/         # .feature files in Gherkin format
-│       │   ├── hooks/                # Cucumber Hooks
-│       │   ├── pages/                # Page Object Model classes
-│       │   ├── runners/              # TestNG runners
-│       │   ├── stepDefinitions/      # Step definitions
-│       │   └── utilities/            # Driver, ConfigReader, etc.
-│       └── resources/
-│           └── extent.properties     # Report configurations
-├── testReports/                      # HTML & PDF reports
-├── configuration.properties          # Environment configuration
-├── pom.xml                           # Maven dependencies
-└── README.md                         # Documentation file
+│   ├── bugGIF/                              # GIFs demonstrating bugs
+│   ├── bugReportsPDF/                       # PDF files for bug reports
+│   ├──── test/
+│   │        ├── java/
+│   │        │   ├── featureFiles/           # .feature files in Gherkin format
+│   │        │   ├── hooks/                  # Cucumber Hooks
+│   │        │   ├── pages/                  # Page Object Model classes
+│   │        │   ├── runners/                # TestNG runners
+│   │        │   ├── stepDefinitions/        # Step definitions
+│   │        │   └── utilities/              # Driver, ConfigReader, etc.
+│   │        │ 
+│   │        └── resources/
+│   │            └── extent.properties       # Report configurations
+│   │
+│   │
+│   └── testGIF/                             # GIFs for test scenarios
+│
+├── testReports/                             # HTML & PDF reports
+├── configuration.properties                 # Environment configuration
+├── pom.xml                                  # Maven dependencies
+└── README.md                                # Documentation file
 ```
 
 ---
@@ -162,8 +169,11 @@ Test results are automatically generated in the following folders:
 ---
 
 ## 💥 Bug Reports
+- **US-023 Calendar - Course Status**: The course status and details is not displayed correctly.
+- **US-024 Calendar - Prevent Access to Unstarted Course**: The system allows access to unstarted courses.
+- Bug Report: **src/bugReportsPDF/US023-US024_BugTicket.pdf**
 
-There are currently no known bugs. Any new bugs can be reported via the GitHub Issues page.
+<img src="src/bugGIF/CalenderCourseAccessAndControlBug.gif" alt="" width="800" height="500"/>
 
 ---
 
@@ -204,8 +214,6 @@ There are currently no known bugs. Any new bugs can be reported via the GitHub I
 ---
 
 ## 📜 License
-
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
 The tested website [https://test.mersys.io/](https://test.mersys.io/) belongs to Techno Study's education platform. This
 project is created **strictly for educational and internal testing** purposes. It is not intended for commercial use.

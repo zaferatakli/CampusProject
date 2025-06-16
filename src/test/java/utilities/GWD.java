@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.safari.SafariDriver;
 
 import java.time.Duration;
 import java.util.Locale;
@@ -18,21 +18,26 @@ public class GWD {
         System.setProperty("user.language", "EN");
 
         if (threadDriver.get() == null) {
-            threadBrowserName.set("chrome");
-        }
 
-        if (threadDriver.get() == null) {
-            switch (threadBrowserName.get()) {
+            if (threadBrowserName.get() == null) {
+                threadBrowserName.set(ConfigReader.getProperty("browser"));
+            }
+            switch (threadBrowserName.get().toLowerCase()) {
                 case "firefox":
                     threadDriver.set(new FirefoxDriver());
+                    break;
+                case "safari":
+                    threadDriver.set(new SafariDriver());
                     break;
                 case "edge":
                     threadDriver.set(new EdgeDriver());
                     break;
                 case "chrome":
+                default:
                     threadDriver.set(new ChromeDriver());
                     break;
             }
+
             threadDriver.get().manage().window().maximize();
             threadDriver.get().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(ConfigReader.getIntProperty("pageLoadTimeout")));
         }
@@ -40,7 +45,6 @@ public class GWD {
     }
 
     public static void tearDown() {
-
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
@@ -49,13 +53,7 @@ public class GWD {
 
         if (threadDriver.get() != null) {
             threadDriver.get().quit();
-            WebDriver driver = threadDriver.get();
-            driver = null;
-            threadDriver.set(driver);
+            threadDriver.remove();
         }
-    }
-
-    public static WebDriverWait getWait() {
-        return new WebDriverWait(getDriver(), Duration.ofSeconds(ConfigReader.getIntProperty("explicitWait")));
     }
 }
