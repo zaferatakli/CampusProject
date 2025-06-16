@@ -198,7 +198,7 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = " //h2[text()=' Pay  $ '] ")
     public WebElement cardPaymentTitle;
 
-    @FindBy(css = "#Field-numberInput")
+    @FindBy(id = "Field-numberInput")
     public WebElement cardNumberInput;
 
     @FindBy(css = "#Field-expiryInput")
@@ -218,6 +218,27 @@ public class DialogContent extends ReusableMethods {
 
     @FindBy(xpath = "//tfoot[@role='rowgroup']/tr[1]/td[9]")
     public WebElement totalBalance;
+
+    @FindBy(xpath = "//span[text()=' Students Fees ']")
+    public WebElement studentFees;
+
+    @FindBy(xpath = "(//tbody[@role='rowgroup']/tr)[1]")
+    public WebElement processingPayment;
+
+    @FindBy(xpath = "//span[contains(text(),'Student Fee')]")
+    public WebElement studentFee;
+
+    @FindBy(xpath = "//label[text()='Stripe ']")
+    public WebElement stripe;
+
+    @FindBy(xpath = "//input[@placeholder='Amount']")
+    public WebElement amountField;
+
+    @FindBy(xpath = "//div[@class='p-HeightObserverProvider']")
+    public WebElement creditCardField;
+
+    @FindBy(xpath = "//iframe[@title='Secure payment input frame']")
+    public WebElement paymentIframe;
 
     // Grading Check Locators
 
