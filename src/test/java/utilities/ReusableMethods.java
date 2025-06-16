@@ -23,6 +23,11 @@ public class ReusableMethods {
         scrollToElement(element);
         element.click();
     }
+    public void myDoubleClick(WebElement element) {
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+        scrollToElement(element);
+        action.doubleClick(element).build().perform();
+    }
 
     public void clickAndClose(WebElement clickElement, WebElement assertElement) {
         wait.until(ExpectedConditions.visibilityOf(clickElement));
@@ -52,12 +57,12 @@ public class ReusableMethods {
 
     public void verifyContainsText(WebElement element, String value) {
         wait.until(ExpectedConditions.textToBePresentInElement(element, value));
-        Assert.assertTrue(element.getText().toLowerCase().contains(value.toLowerCase()));
+        Assert.assertTrue(element.getText().toLowerCase().contains(value.toLowerCase()), value + " not displayed!");
     }
 
     public void verifyEqualsText(WebElement element, String value) {
         wait.until(ExpectedConditions.textToBePresentInElement(element, value));
-        Assert.assertTrue(element.getText().toLowerCase().equals(value.toLowerCase()));
+        Assert.assertEquals(value.toLowerCase(), element.getText().toLowerCase());
         action.sendKeys(Keys.ESCAPE).build().perform();
     }
 
