@@ -313,6 +313,12 @@ public class DialogContent extends ReusableMethods {
                 return this.studentTranscript;
             case "Transcript by Subject":
                 return this.transcriptBySubject;
+            case "stripe":
+                return this.stripe;
+            case "payInFullButton":
+                return this.payInFullButton;
+            case "payButton":
+                return this.payButton;
 
         }
         return null;
