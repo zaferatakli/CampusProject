@@ -60,7 +60,7 @@ public class TopNav extends ReusableMethods {
     @FindBy(xpath = "//user-message-bell//button")
     public WebElement  newMessageIcon;
 
-    @FindBy(xpath = "(//span[@class='mdc-button__label'])[6]")
+    @FindBy(xpath = "(//span[@class='mdc-button__label'])[6]") //(//*[@aria-haspopup='menu']//span[@class='mdc-button__label'])[1]
     public WebElement hamburgerMenuButton;
 
     @FindBy(xpath = "//span[text()=' S. 11A']")
