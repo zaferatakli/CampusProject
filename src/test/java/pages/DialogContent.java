@@ -130,7 +130,7 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "(//div//mat-error)[2]")
     public WebElement passwordRequiredMessage;
 
-    @FindBy(xpath = "(//button[@matbadgecolor='accent'])[2]")
+    @FindBy(xpath = "(//button[@matbadgesize='medium'])[2]")
     public WebElement receiversButton;
 
     @FindBy(xpath = "(//*[text()='User'])[10]")
@@ -148,7 +148,7 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "//span[text()='Attach Files...']")
     public WebElement attachInput;
 
-    @FindBy(xpath = "//span[text()='From My Files']")
+    @FindBy(xpath = "//*[contains(text(),'From My Files')]")
     public WebElement fromMyFiles;
 
     @FindBy(xpath = "(//*[text()=' Info '])[1]")
