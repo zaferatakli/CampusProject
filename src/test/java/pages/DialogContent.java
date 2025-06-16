@@ -257,6 +257,43 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "//span[text()='Transcript by Subject']")
     public WebElement transcriptBySubject;
 
+    // Assigments Feature Locators
+
+    @FindBy(id = "mat-select-value-14")
+    public WebElement semesterButton;
+
+    @FindBy(xpath = "//span[text()=' Assignments ']")
+    public WebElement assignmentsPageTitle;
+
+    @FindBy(xpath = "//ms-icon-button[@icon='file-import']")
+    public List<WebElement> submitIcons;
+
+    @FindBy(xpath = "//*[@data-icon='memo-circle-info']")
+    public List<WebElement> homeworkIcons;
+
+    @FindBy(xpath = "//span[text()='Save as Draft']")
+    public WebElement saveAsDraftButton;
+
+    @FindBy(xpath = "#ms-button-20")
+    public WebElement submitButton;
+
+    @FindBy(xpath = "(//strong[text()='11A-Mathematics '])[1]")
+    public WebElement mathematics;
+
+    @FindBy(xpath = "//span[text()='New Submission']")
+    public WebElement newSubmissionButton;
+
+    @FindBy(xpath = "//div[@id='mat-select-value-39']")
+    public WebElement courseButton;
+
+    @FindBy(xpath = "//div[@id='mat-select-value-40']")
+    public WebElement statusButton;
+
+    @FindBy(xpath = "//span[text()='Search']")
+    public WebElement searchButton;
+
+    @FindBy (xpath = "//span[text()='Default View']")
+    public WebElement defaultViewButton;
 
     public WebElement getWebElement(String dcElement) {
         switch (dcElement) {
