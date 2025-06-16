@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.*;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 import utilities.*;
 
 import java.util.List;
@@ -129,40 +130,40 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "(//div//mat-error)[2]")
     public WebElement passwordRequiredMessage;
 
-    @FindBy(xpath="(//button[@matbadgecolor='accent'])[2]")
+    @FindBy(xpath = "(//button[@matbadgecolor='accent'])[2]")
     public WebElement receiversButton;
 
-    @FindBy(xpath ="(//*[text()='User'])[10]")
+    @FindBy(xpath = "(//*[text()='User'])[10]")
     public WebElement receiversCheckbox;
 
-    @FindBy(xpath ="//span[text()='Add & Close']")
+    @FindBy(xpath = "//span[text()='Add & Close']")
     public WebElement addAndCloseButton;
 
-    @FindBy(xpath ="//input[@placeholder='Subject']")
+    @FindBy(xpath = "//input[@placeholder='Subject']")
     public WebElement subjectInput;
 
-    @FindBy(xpath ="//iframe[@class='tox-edit-area__iframe']")
+    @FindBy(xpath = "//iframe[@class='tox-edit-area__iframe']")
     public WebElement messageTextIframe;
 
-    @FindBy(xpath ="//span[text()='Attach Files...']")
+    @FindBy(xpath = "//span[text()='Attach Files...']")
     public WebElement attachInput;
 
-    @FindBy(xpath ="//span[text()='From My Files']")
+    @FindBy(xpath = "//span[text()='From My Files']")
     public WebElement fromMyFiles;
 
     @FindBy(xpath = "(//*[text()=' Info '])[1]")
     public WebElement selectMessageButton;
 
-    @FindBy(xpath ="//*[text()='Move to Trash']")
+    @FindBy(xpath = "//*[text()='Move to Trash']")
     public WebElement moveToTrashButton;
 
-    @FindBy(xpath ="//span[text()=' Yes ']")
+    @FindBy(xpath = "//span[text()=' Yes ']")
     public WebElement yesButton;
 
-    @FindBy (xpath ="//*[contains(text(), 'Message successfully')]")
+    @FindBy(xpath = "//*[contains(text(), 'Message successfully')]")
     public WebElement successMessage;
 
-    @FindBy (xpath = "//body[@id='tinymce']")
+    @FindBy(xpath = "//body[@id='tinymce']")
     public WebElement messageTextBody;
 
     @FindBy(xpath = "//span[text()='Send']")
@@ -171,7 +172,7 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "(//*[@icon='trash-restore'])[1]")
     public WebElement restoreButton;
 
-    /// Finance Functionality Locators
+    // Finance Functionality Locators
 
     @FindBy(xpath = "//button[@matbadgecolor='accent']/span[@class='mat-focus-indicator']")
     public WebElement viewButton;
@@ -179,13 +180,13 @@ public class DialogContent extends ReusableMethods {
     @FindBy(css = "#mat-radio-4-input")
     public WebElement stripeButton;
 
-    @FindBy (xpath = "//span[contains(text(), 'Pay in full')]")
+    @FindBy(xpath = "//span[contains(text(), 'Pay in full')]")
     public WebElement payInFullButton;
 
-    @FindBy (xpath = "//span[contains(text(), 'Create Installment')]")
+    @FindBy(xpath = "//span[contains(text(), 'Create Installment')]")
     public WebElement createInstallmentButton;
 
-    @FindBy (xpath = "//span[text()= 'Pay']")
+    @FindBy(xpath = "//span[text()= 'Pay']")
     public WebElement payButton;
 
     @FindBy(xpath = "input[id='ms-currency-field-0']")
@@ -194,10 +195,10 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "//ms-button[@icon='wallet']/button")
     public WebElement paymentButton;    // Amount yani ödeme butonu
 
-    @FindBy (xpath = "//h2[text()=' Pay  $ ']")
+    @FindBy(xpath = " //h2[text()=' Pay  $ '] ")
     public WebElement cardPaymentTitle;
 
-    @FindBy(id = "Field-numberInput")
+    @FindBy(css = "#Field-numberInput")
     public WebElement cardNumberInput;
 
     @FindBy(css = "#Field-expiryInput")
@@ -206,7 +207,7 @@ public class DialogContent extends ReusableMethods {
     @FindBy(css = "#Field-cvcInput")
     public WebElement cardCVCInput;
 
-    @FindBy (css = "#Field-countryInput")
+    @FindBy(css = "#Field-countryInput")
     public WebElement cardCountryInput;
 
     @FindBy(xpath = "//div[@class='StripeElement']/following-sibling::button")
@@ -218,46 +219,23 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "//tfoot[@role='rowgroup']/tr[1]/td[9]")
     public WebElement totalBalance;
 
-    @FindBy(xpath = "//span[text()=' Students Fees ']")
-    public WebElement studentFees;
+    // Grading Check Locators
 
-    @FindBy(xpath = "(//tbody[@role='rowgroup']/tr)[1]")
-    public WebElement processingPayment;
+    @FindBy(xpath = "//span[@class='mdc-tab__text-label' and normalize-space()='Course Grade']")
+    public WebElement courseGradeButton;
 
-    @FindBy(xpath = "//span[contains(text(),'Student Fee')]")
-    public WebElement studentFee;
+    @FindBy(xpath = "//*[@id=\"ms-standard-button-0\"]/button")
+    public WebElement printIcon;
 
-    @FindBy(xpath = "//label[text()='Stripe ']")
-    public WebElement stripe;
+    @FindBy(xpath = "//button[.//fa-icon/svg[@data-icon='print']]]")
+    public WebElement downloadIcon; //
 
-    @FindBy(xpath = "//input[@placeholder='Amount']")
-    public WebElement amountField;
+    @FindBy(xpath = "//span[text()='Student Transcript']")
+    public WebElement studentTranscript;
 
-    @FindBy(xpath = "//div[@class='p-HeightObserverProvider']")
-    public WebElement creditCardField;
+    @FindBy(xpath = "//span[text()='Transcript by Subject']")
+    public WebElement transcriptBySubject;
 
-    @FindBy(xpath = "//iframe[@title='Secure payment input frame']")
-    public WebElement paymentIframe;
-
-/// Attandance locators
-  
-   @FindBy(xpath ="(//span[@class='mdc-tab__text-label'])[3]" )
-    public WebElement attendanceExcusesTab;
-
-    @FindBy(xpath = "(//ms-add-button[@id='ms-button-0']//span)[1]")
-    public  WebElement addExcuseButton;
-
-
-    @FindBy(xpath = "//textarea[@id='ms-textarea-field-0']")
-    public WebElement excuseMessageTextarea;
-
-    @FindBy(xpath = "//div[text()='Attendance Excuse successfully sent']")
-    public WebElement excuseSuccessMessage;
-
-
-  
-  
-  
 
     public WebElement getWebElement(String dcElement) {
         switch (dcElement) {
@@ -267,12 +245,16 @@ public class DialogContent extends ReusableMethods {
                 return this.todayButton;
             case "nextButton":
                 return this.nextButton;
-            case "stripe":
-                return this.stripe;
-            case "payInFullButton":
-                return this.payInFullButton;
-            case "payButton":
-                return this.payButton;
+            case "Course Grade":
+                return this.courseGradeButton;
+            case "Print":
+                return this.printIcon;
+            case "Download":
+                return this.downloadIcon;
+            case "Student Transcript":
+                return this.studentTranscript;
+            case "Transcript by Subject":
+                return this.transcriptBySubject;
 
         }
         return null;
