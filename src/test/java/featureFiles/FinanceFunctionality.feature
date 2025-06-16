@@ -22,7 +22,18 @@ Feature: Finance Functionality
     Then The user views the received message in the area
 
   Scenario: Pay a course installment
-
+    When The user clicks on their payment in processing
+    Then The user verify that you go to the Student Fee page
+    And The user clicks on the following buttons to reach the pay button
+      | stripe          |
+      | payInFullButton |
+      | payButton       |
+    And The user enter the payment amount in the Amount field.
+    And The user double click on the pay button
+    When The user verifies that the field to enter credit card information has been opened
+    And The user enters credit card details
+    And The user clicks on the stipe payments button
+    And The user sees the message of success
 
 
   Scenario: Download the payment information from the checkout page to your computer in excel or pdf format

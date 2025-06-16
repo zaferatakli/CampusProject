@@ -1,6 +1,8 @@
 package stepDefinitions;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pages.DialogContent;
@@ -8,9 +10,12 @@ import pages.TopNav;
 import utilities.ConfigReader;
 import utilities.GWD;
 
+import java.util.List;
+
 public class FinanceFunctionality {
     TopNav tn = new TopNav();
     DialogContent dc = new DialogContent();
+
     @Given("The user has been redirected to the my finance page")
     public void theUserHasBeenRedirectedToTheMyFinancePage() {
         tn.wait.until(ExpectedConditions.elementToBeClickable(tn.hamburgerMenuButton));
@@ -77,7 +82,71 @@ public class FinanceFunctionality {
 
     @And("The page is checked")
     public void thePageIsChecked() {
-        dc.wait.until(ExpectedConditions.visibilityOf(dc.studentFees));
-        Assert.assertTrue(dc.studentFees.isDisplayed());
+        dc.verifyContainsText(dc.studentFees, "Students Fees");
+    }
+
+    @When("The user clicks on their payment in processing")
+    public void theUserClicksOnTheirPaymentInProcessing() {
+        Assert.assertTrue(dc.processingPayment.isDisplayed(), "Processing payment is not displayed!");
+        dc.myClick(dc.processingPayment);
+    }
+
+    @Then("The user verify that you go to the Student Fee page")
+    public void theUserVerifyThatYouGoToTheStudentFeePage() {
+        dc.verifyContainsText(dc.studentFee, "Student Fee");
+    }
+
+
+    @And("The user clicks on the following buttons to reach the pay button")
+    public void theUserClicksOnTheFollowingButtonsToReachThePayButton(DataTable buttons) {
+        List<String> buttonsList = buttons.asList(String.class);
+
+        for (int i = 0; i < buttonsList.size(); i++) {
+            dc.wait.until(ExpectedConditions.elementToBeClickable(dc.getWebElement(buttonsList.get(i))));
+            Assert.assertTrue(dc.getWebElement(buttonsList.get(i)).isDisplayed());
+            dc.myClick(dc.getWebElement(buttonsList.get(i)));
+        }
+
+    }
+
+    @And("The user enter the payment amount in the Amount field.")
+    public void theUserEnterThePaymentAmountInTheAmountField() {
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.amountField));
+        Assert.assertTrue(dc.amountField.isDisplayed(), "Amount Field is not displayed!");
+        dc.mySendKeys(dc.amountField, ConfigReader.getProperty("amount"));
+    }
+
+    @And("The user double click on the pay button")
+    public void theUserDoubleClickOnThePayButton() {
+        dc.myClick(dc.payButton);
+        dc.myClick(dc.paymentButton);
+    }
+
+    @When("The user verifies that the field to enter credit card information has been opened")
+    public void theUserVerifiesThatTheFieldToEnterCreditCardInformationHasBeenOpened() {
+        dc.verifyContainsText(dc.cardPaymentTitle, "Pay $");
+    }
+
+    @And("The user enters credit card details")
+    public void theUserEntersCreditCardDetails() {
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.paymentIframe));
+        GWD.getDriver().switchTo().frame(dc.paymentIframe);
+        dc.wait.until(ExpectedConditions.visibilityOfAllElements(dc.creditCardField));
+        dc.mySendKeys(dc.cardNumberInput, ConfigReader.getProperty("cardNumber")
+                + Keys.TAB + ConfigReader.getProperty("expirationDate")
+                + Keys.TAB + ConfigReader.getProperty("securityCode"));
+        GWD.getDriver().switchTo().defaultContent();
+
+    }
+
+    @And("The user clicks on the stipe payments button")
+    public void theUserClicksOnTheStipePaymentsButton() {
+        dc.myClick(dc.paymentsButton);
+    }
+
+    @And("The user sees the message of success")
+    public void theUserSeesTheMessageOfSuccess() {
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.paymentSuccessMessage));
+        dc.verifyContainsText(dc.paymentSuccessMessage,"success");
     }
 }
