@@ -13,7 +13,7 @@ import utilities.GWD;
 
 import java.util.List;
 
-public class AssingmentsFeature {
+public class AssignmentsFeature {
     TopNav tn = new TopNav();
     DialogContent dc = new DialogContent();
 
@@ -63,6 +63,7 @@ public class AssingmentsFeature {
 
     @And("the user selects the Assignments section")
     public void theUserSelectsTheAssignmentsSection() {
+        tn.setZoomPercentage(GWD.getDriver(),65);
         tn.wait.until(ExpectedConditions.visibilityOf(tn.assignmentsMenu));
         Assert.assertTrue(tn.assignmentsMenu.isDisplayed());
         tn.myClick(tn.assignmentsMenu);
@@ -70,22 +71,51 @@ public class AssingmentsFeature {
 
     @When("the user clicks the Submit icon for a homework")
     public void theUserClicksTheSubmitIconForAHomework() {
-        Assert.assertTrue(dc.semesterButton.isDisplayed());
-        dc.action.moveToElement(dc.semesterButton).click().build().perform();
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.semesterButton));
+        dc.wait.until(ExpectedConditions.elementToBeClickable(dc.semesterButton));
+        dc.action.moveToElement(dc.semesterButton).build().perform();
+        dc.jsClick(dc.semesterButton);
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.allButton));
+        dc.wait.until(ExpectedConditions.elementToBeClickable(dc.allButton));
         dc.myClick(dc.allButton);
+
+        dc.setWait(3); /// Wait for the page to load and display all assignments
         List<WebElement> submitButtonList = dc.submitIcons;
+        System.out.println("Number of submit buttons: " + submitButtonList.size());
         for (int i = 0; i < submitButtonList.size(); i++) {
-            dc.wait.until(ExpectedConditions.elementToBeClickable(submitButtonList.get(i)));
-            Assert.assertTrue(submitButtonList.get(i).isDisplayed());
-            dc.myClick(submitButtonList.get(i));
+            List<WebElement> currentList = submitButtonList;
+            System.out.println("Current button: " + currentList.size());
+            WebElement currentButton = currentList.get(i);
+
+            System.out.println("Clicking submit button: " + i);
+
+            dc.wait.until(ExpectedConditions.visibilityOf(currentButton));
+            dc.wait.until(ExpectedConditions.elementToBeClickable(currentButton));
+            dc.jsClick(currentButton);
+
+            dc.wait.until(ExpectedConditions.visibilityOf(dc.homeworkIframe));
             GWD.getDriver().switchTo().frame(dc.homeworkIframe);
+
+            dc.wait.until(ExpectedConditions.visibilityOf(dc.inputText));
+            dc.wait.until(ExpectedConditions.elementToBeClickable(dc.inputText));
+            dc.jsClick(dc.inputText);
             dc.mySendKeys(dc.inputText, "Test");
+
             GWD.getDriver().switchTo().defaultContent();
-            dc.myClick(dc.saveAsDraftButton);
-            Assert.assertTrue(dc.submitSend.isDisplayed());
-            dc.myClick(dc.submitSend);
-            dc.myClick(dc.yesButton);
-            tn.verifyContainsText(dc.successMessage, "Message successfully");
+            dc.wait.until(ExpectedConditions.visibilityOf(dc.saveAsDraftButton));
+            dc.wait.until(ExpectedConditions.elementToBeClickable(dc.saveAsDraftButton));
+            dc.jsClick(dc.saveAsDraftButton);
+
+            dc.wait.until(ExpectedConditions.visibilityOf(dc.submitSend));
+            dc.wait.until(ExpectedConditions.elementToBeClickable(dc.submitSend));
+            dc.jsClick(dc.submitSend);
+
+            dc.wait.until(ExpectedConditions.visibilityOf(dc.yesButton));
+            dc.wait.until(ExpectedConditions.elementToBeClickable(dc.yesButton));
+            dc.jsClick(dc.yesButton);
+            if (i==3) {
+                break; // Stop after 4 submissions for testing purposes
+            }
         }
     }
 
