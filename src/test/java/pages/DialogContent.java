@@ -252,14 +252,14 @@ public class DialogContent extends ReusableMethods {
 
     // Grading Check Locators
 
-    @FindBy(xpath = "//span[@class='mdc-tab__text-label' and normalize-space()='Course Grade']")
+    @FindBy(xpath = "//span[@class='mdc-tab__text-label' and contains(., 'Course Grade')]")
     public WebElement courseGradeButton;
 
     @FindBy(xpath = "//*[@id=\"ms-standard-button-0\"]/button")
     public WebElement printIcon;
 
-    @FindBy(xpath = "//button[.//fa-icon/svg[@data-icon='print']]]")
-    public WebElement downloadIcon; //
+    @FindBy(xpath = "//button[.//fa-icon/svg[@data-icon='print']]")
+    public WebElement downloadIcon;
 
     @FindBy(xpath = "//span[text()='Student Transcript']")
     public WebElement studentTranscript;
