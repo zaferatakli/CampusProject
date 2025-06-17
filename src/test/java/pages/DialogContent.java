@@ -259,8 +259,11 @@ public class DialogContent extends ReusableMethods {
 
     // Assigments Feature Locators
 
-    @FindBy(id = "mat-select-value-14")
+    @FindBy(xpath = "//*[@id=\"container-3\"]/ms-assignment-panel-student/div/div/div/div[1]/mat-form-field[3]")
     public WebElement semesterButton;
+
+    @FindBy (xpath = "(//span[contains(text(),'All')])[2]")
+    public WebElement allButton;
 
     @FindBy(xpath = "//span[text()=' Assignments ']")
     public WebElement assignmentsPageTitle;
@@ -294,6 +297,21 @@ public class DialogContent extends ReusableMethods {
 
     @FindBy (xpath = "//span[text()='Default View']")
     public WebElement defaultViewButton;
+
+    @FindBy(xpath = "//iframe[@class='tox-edit-area__iframe']")
+    public WebElement homeworkIframe;
+
+    @FindBy(id = "tinymce")
+    public WebElement inputText;
+
+    @FindBy(xpath = "//ms-confirm-button[@class='ng-star-inserted']")
+    public  WebElement submitSend;
+
+
+
+
+
+
 
     public WebElement getWebElement(String dcElement) {
         switch (dcElement) {
