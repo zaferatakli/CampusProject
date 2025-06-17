@@ -1,69 +1,64 @@
 package stepDefinitions;
 
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import org.openqa.selenium.WebElement;
+import io.cucumber.java.en.*;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
-import pages.DialogContent;
-import pages.TopNav;
+import pages.*;
 import utilities.GWD;
-
-import java.util.List;
-
+import java.time.Duration;
 public class AssignmentsFeature {
     TopNav tn = new TopNav();
     DialogContent dc = new DialogContent();
 
-    @Then("a rich text editor should appear on the screen")
-    public void aRichTextEditorShouldAppearOnTheScreen() {
-    }
-
-    @Then("a confirmation message indicating success should be displayed")
-    public void aConfirmationMessageIndicatingSuccessShouldBeDisplayed() {
-    }
-
-    @Then("another success message should be shown confirming submission")
-    public void anotherSuccessMessageShouldBeShownConfirmingSubmission() {
-    }
-
     @Given("the user is on the detail view of the homework")
     public void theUserIsOnTheDetailViewOfTheHomework() {
-    }
-
-    @Then("a text editor should be visible for entering a new submission")
-    public void aTextEditorShouldBeVisibleForEnteringANewSubmission() {
-    }
-
-    @Given("the user has navigated to the Assignments page")
-    public void theUserHasNavigatedToTheAssignmentsPage() {
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.semesterButton));
+        dc.wait.until(ExpectedConditions.elementToBeClickable(dc.semesterButton));
+        dc.action.moveToElement(dc.semesterButton).build().perform();
+        dc.jsClick(dc.semesterButton);
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.allButton));
+        dc.wait.until(ExpectedConditions.elementToBeClickable(dc.allButton));
+        dc.myClick(dc.allButton);
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.homeworkButton));
+        dc.jsClick(dc.homeworkButton);
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.newSubButton));
+        dc.wait.until(ExpectedConditions.elementToBeClickable(dc.newSubButton));
+        dc.myClick(dc.newSubButton);
+        dc.verifyContainsText(dc.attachInput, "Attach Files...");
     }
 
     @When("the user clicks the search icon on the default Assignments view")
     public void theUserClicksTheSearchIconOnTheDefaultAssignmentsView() {
-    }
+        dc.jsClick(dc.searchButton);
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.courseButton));
+        dc.verifyContainsText(dc.courseButton, "Course");
+        dc.verifyContainsText(dc.statusButton, "Status");
+        dc.verifyContainsText(dc.semesterBtn, "Semester");
+        dc.setWait(3);
+        dc.jsClick(dc.defaultViewButton);
 
-    @Then("the user should see a list displaying all assigned homework")
-    public void theUserShouldSeeAListDisplayingAllAssignedHomework() {
-    }
+        dc.setWait(3);
 
-    @And("the user should be able to apply filters such as Course, Status, and Semester")
-    public void theUserShouldBeAbleToApplyFiltersSuchAsCourseStatusAndSemester() {
-    }
+        dc.jsClick(dc.showByCourse);
+        dc.verifyContainsText(dc.showByCourse, "Show by Course");
 
-    @And("the user opens a dropdown menu to manage sorting options on the Assignments page")
-    public void theUserOpensADropdownMenuToManageSortingOptionsOnTheAssignmentsPage() {
-    }
+        dc.jsClick(dc.showByCourse);
+        dc.jsClick(dc.showByType);
+        dc.verifyContainsText(dc.showByType, "Show by Type");
 
-    @And("the user sorts the results based on course, assignment type, date, or table columns")
-    public void theUserSortsTheResultsBasedOnCourseAssignmentTypeDateOrTableColumns() {
+        dc.jsClick(dc.showByType);
+        dc.jsClick(dc.showByDate);
+        dc.verifyContainsText(dc.showByDate, "Show by Date");
+
+        dc.jsClick(dc.showByDate);
+        dc.jsClick(dc.showByChart);
+        dc.verifyContainsText(dc.showByChart, "Show by Chart");
     }
 
     @And("the user selects the Assignments section")
     public void theUserSelectsTheAssignmentsSection() {
-        tn.setZoomPercentage(GWD.getDriver(),65);
+//        tn.setZoomPercentage(GWD.getDriver(), 75);
         tn.wait.until(ExpectedConditions.visibilityOf(tn.assignmentsMenu));
         Assert.assertTrue(tn.assignmentsMenu.isDisplayed());
         tn.myClick(tn.assignmentsMenu);
@@ -78,64 +73,57 @@ public class AssignmentsFeature {
         dc.wait.until(ExpectedConditions.visibilityOf(dc.allButton));
         dc.wait.until(ExpectedConditions.elementToBeClickable(dc.allButton));
         dc.myClick(dc.allButton);
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.submitIcons));
+        dc.wait.until(ExpectedConditions.elementToBeClickable(dc.submitIcons));
+        dc.jsClick(dc.submitIcons);
 
-        dc.setWait(3); /// Wait for the page to load and display all assignments
-        List<WebElement> submitButtonList = dc.submitIcons;
-        System.out.println("Number of submit buttons: " + submitButtonList.size());
-        for (int i = 0; i < submitButtonList.size(); i++) {
-            List<WebElement> currentList = submitButtonList;
-            System.out.println("Current button: " + currentList.size());
-            WebElement currentButton = currentList.get(i);
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.homeworkIframe));
+        GWD.getDriver().switchTo().frame(dc.homeworkIframe);
 
-            System.out.println("Clicking submit button: " + i);
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.inputText));
+        dc.wait.until(ExpectedConditions.elementToBeClickable(dc.inputText));
+        dc.jsClick(dc.inputText);
+        dc.mySendKeys(dc.inputText, "Test");
+        GWD.getDriver().switchTo().defaultContent();
+        tn.wait.until(ExpectedConditions.visibilityOf(dc.attachInput));
+        tn.myClick(dc.attachInput);
+        tn.wait.until(ExpectedConditions.visibilityOf(dc.fromMyFiles));
+        tn.myClick(dc.fromMyFiles);
+        tn.action.pause(Duration.ofSeconds(2)).build().perform();
 
-            dc.wait.until(ExpectedConditions.visibilityOf(currentButton));
-            dc.wait.until(ExpectedConditions.elementToBeClickable(currentButton));
-            dc.jsClick(currentButton);
-
-            dc.wait.until(ExpectedConditions.visibilityOf(dc.homeworkIframe));
-            GWD.getDriver().switchTo().frame(dc.homeworkIframe);
-
-            dc.wait.until(ExpectedConditions.visibilityOf(dc.inputText));
-            dc.wait.until(ExpectedConditions.elementToBeClickable(dc.inputText));
-            dc.jsClick(dc.inputText);
-            dc.mySendKeys(dc.inputText, "Test");
-
-            GWD.getDriver().switchTo().defaultContent();
-            dc.wait.until(ExpectedConditions.visibilityOf(dc.saveAsDraftButton));
-            dc.wait.until(ExpectedConditions.elementToBeClickable(dc.saveAsDraftButton));
-            dc.jsClick(dc.saveAsDraftButton);
-
-            dc.wait.until(ExpectedConditions.visibilityOf(dc.submitSend));
-            dc.wait.until(ExpectedConditions.elementToBeClickable(dc.submitSend));
-            dc.jsClick(dc.submitSend);
-
-            dc.wait.until(ExpectedConditions.visibilityOf(dc.yesButton));
-            dc.wait.until(ExpectedConditions.elementToBeClickable(dc.yesButton));
-            dc.jsClick(dc.yesButton);
-            if (i==3) {
-                break; // Stop after 4 submissions for testing purposes
-            }
+        for (int i = 1; i < 3; i++) {
+            tn.action.sendKeys(Keys.TAB).build().perform();
         }
+        tn.action.sendKeys(Keys.SPACE).build().perform();
+        tn.action.pause(Duration.ofSeconds(1)).build().perform();
+        tn.myClick(dc.selectButton);
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.saveAsDraftButton));
+        dc.wait.until(ExpectedConditions.elementToBeClickable(dc.saveAsDraftButton));
+        dc.jsClick(dc.saveAsDraftButton);
+
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.submitSend));
+        dc.wait.until(ExpectedConditions.elementToBeClickable(dc.submitSend));
+        dc.jsClick(dc.submitSend);
+
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.yesButton));
+        dc.wait.until(ExpectedConditions.elementToBeClickable(dc.yesButton));
+        dc.jsClick(dc.yesButton);
     }
 
     @And("the user enters the message content and uploads a file using the Attach Files option")
     public void theUserEntersTheMessageContentAndUploadsAFileUsingTheAttachFilesOption() {
-    }
+        tn.wait.until(ExpectedConditions.visibilityOf(dc.attachInput));
+        tn.myClick(dc.attachInput);
+        tn.wait.until(ExpectedConditions.visibilityOf(dc.fromMyFiles));
+        tn.myClick(dc.fromMyFiles);
+        tn.action.pause(Duration.ofSeconds(2)).build().perform();
 
-    @And("the user chooses to save the submission as a draft by clicking the Save as Draft button")
-    public void theUserChoosesToSaveTheSubmissionAsADraftByClickingTheSaveAsDraftButton() {
-    }
+        for (int i = 1; i < 2; i++) {
+            tn.action.sendKeys(Keys.TAB).build().perform();
+        }
 
-    @When("the user presses the Submit button within the text editor")
-    public void theUserPressesTheSubmitButtonWithinTheTextEditor() {
-    }
-
-    @And("the user confirms the action by clicking Yes in the confirmation dialog")
-    public void theUserConfirmsTheActionByClickingYesInTheConfirmationDialog() {
-    }
-
-    @When("the user selects the New Submission option")
-    public void theUserSelectsTheNewSubmissionOption() {
+        tn.action.sendKeys(Keys.SPACE).build().perform();
+        tn.action.pause(Duration.ofSeconds(1)).build().perform();
+        tn.myClick(dc.selectButton);
     }
 }
