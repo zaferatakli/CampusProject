@@ -160,7 +160,7 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "//span[text()=' Yes ']")
     public WebElement yesButton;
 
-    @FindBy(xpath = "//*[contains(text(), 'Message successfully')]")
+    @FindBy(xpath = "//mat-panel-description//div[text()='Successfully submitted to review']")
     public WebElement successMessage;
 
     @FindBy(xpath = "//body[@id='tinymce']")
@@ -269,7 +269,7 @@ public class DialogContent extends ReusableMethods {
 
     // Assigments Feature Locators
 
-    @FindBy(xpath = "//*[@id=\"container-3\"]/ms-assignment-panel-student/div/div/div/div[1]/mat-form-field[3]")
+    @FindBy(xpath = "(//div[@class='mat-mdc-select-value'])[3]")
     public WebElement semesterButton;
 
     @FindBy (xpath = "(//span[contains(text(),'All')])[2]")
@@ -278,7 +278,7 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "//span[text()=' Assignments ']")
     public WebElement assignmentsPageTitle;
 
-    @FindBy(xpath = "//ms-icon-button[@icon='file-import']")
+    @FindBy(xpath = "//ms-icon-button[@icon='file-import']//button")
     public List<WebElement> submitIcons;
 
     @FindBy(xpath = "//*[@data-icon='memo-circle-info']")
@@ -314,7 +314,7 @@ public class DialogContent extends ReusableMethods {
     @FindBy(id = "tinymce")
     public WebElement inputText;
 
-    @FindBy(xpath = "//ms-confirm-button[@class='ng-star-inserted']")
+    @FindBy(xpath = "//ms-confirm-button//button")
     public  WebElement submitSend;
 
 
