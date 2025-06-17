@@ -22,12 +22,12 @@ public class FinanceFunctionality {
         tn.hoverOver(tn.financeButton);
         tn.wait.until(ExpectedConditions.visibilityOf(tn.myFinanceButton));
         tn.myClick(tn.myFinanceButton);
-        tn.wait.until(ExpectedConditions.urlToBe(ConfigReader.getProperty("myFinanceURL")));
-        Assert.assertTrue(GWD.getDriver().getCurrentUrl().equals(ConfigReader.getProperty("myFinanceURL")));
     }
 
-    @And("The page is checked")
-    public void thePageIsChecked() {
+    @And("The user should be on the My Finance page")
+    public void theUserShouldBeOnTheMyFinancePage() {
+        tn.wait.until(ExpectedConditions.urlToBe(ConfigReader.getProperty("myFinanceURL")));
+        Assert.assertTrue(GWD.getDriver().getCurrentUrl().equals(ConfigReader.getProperty("myFinanceURL")));
         dc.verifyContainsText(dc.studentFees, "Students Fees");
     }
 
@@ -38,8 +38,8 @@ public class FinanceFunctionality {
         dc.myClick(dc.processingPayment);
     }
 
-    @Then("The user verify that you go to the Student Fee page")
-    public void theUserVerifyThatYouGoToTheStudentFeePage() {
+    @Then("The user verify that go to the Student Fee page")
+    public void theUserVerifyThatGoToTheStudentFeePage() {
         dc.verifyContainsText(dc.studentFee, "Student Fee");
     }
 
@@ -61,8 +61,8 @@ public class FinanceFunctionality {
         dc.mySendKeys(dc.amountField, ConfigReader.getProperty("amount"));
     }
 
-    @And("The user double click on the pay button")
-    public void theUserDoubleClickOnThePayButton() {
+    @And("The user double clicks on the pay button")
+    public void theUserDoubleClicksOnThePayButton() {
         dc.myClick(dc.payButton);
         dc.myClick(dc.paymentButton);
     }
@@ -81,8 +81,8 @@ public class FinanceFunctionality {
         GWD.getDriver().switchTo().defaultContent();
     }
 
-    @And("The user clicks on the stipe payments button")
-    public void theUserClicksOnTheStipePaymentsButton() {
+    @And("The user clicks on the stripe payments button")
+    public void theUserClicksOnTheStripePaymentsButton() {
         dc.myClick(dc.paymentsButton);
     }
 
@@ -123,7 +123,7 @@ public class FinanceFunctionality {
         Assert.assertTrue(actualBalance == expectedBalanceInt, "Balance has not decreased as expected!");
     }
 
-    @When("The user memorizes balance.")
+    @Given("The user memorizes balance.")
     public void theUserMemorizesBalance() {
         String balance = dc.totalBalance.getText().replaceAll("[^0-9]", "");
         ConfigReader.saveToConfig("balance", balance);

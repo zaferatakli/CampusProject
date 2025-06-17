@@ -5,26 +5,25 @@ Feature: Finance Functionality
     When The user types username and password and click login button
     Then The user verifies login successfully
     Given The user has been redirected to the my finance page
-    And The page is checked
+    And The user should be on the My Finance page
 
-  Scenario: Payment Feature on My Finance Page
-    When The user memorizes balance.
+  Scenario: User makes a payment and verifies balance deduction
+    Given The user memorizes balance.
     When The user clicks on their payment in processing
-    Then The user verify that you go to the Student Fee page
+    Then The user verify that go to the Student Fee page
     And The user clicks on the following buttons to reach the pay button
       | stripe          |
       | payInFullButton |
       | payButton       |
     And The user enter the payment amount in the Amount field.
-    And The user double click on the pay button
+    And The user double clicks on the pay button
     When The user verifies that the field to enter credit card information has been opened
     And The user enters credit card details
-    And The user clicks on the stipe payments button
+    And The user clicks on the stripe payments button
     And The user sees the message of success
     Given The user has been redirected to the my finance page
-    And The page is checked
+    And The user should be on the My Finance page
     Then The user confirms the balance has decreased.
-    When The user clicks the New Message button in the top right corner of the toolbar
 
   Scenario: Displaying the installment payment form
     When The user clicks on their payment in processing
@@ -35,16 +34,16 @@ Feature: Finance Functionality
 
   Scenario: Pay a course installment
     When The user clicks on their payment in processing
-    Then The user verify that you go to the Student Fee page
+    Then The user verify that go to the Student Fee page
     And The user clicks on the following buttons to reach the pay button
       | stripe          |
       | payInFullButton |
       | payButton       |
     And The user enter the payment amount in the Amount field.
-    And The user double click on the pay button
+    And The user double clicks on the pay button
     When The user verifies that the field to enter credit card information has been opened
     And The user enters credit card details
-    And The user clicks on the stipe payments button
+    And The user clicks on the stripe payments button
     And The user sees the message of success
 
 
