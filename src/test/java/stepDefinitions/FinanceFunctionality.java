@@ -16,11 +16,8 @@ public class FinanceFunctionality {
 
     @Given("The user has been redirected to the my finance page")
     public void theUserHasBeenRedirectedToTheMyFinancePage() {
-        tn.wait.until(ExpectedConditions.elementToBeClickable(tn.hamburgerMenuButton));
         tn.myClick(tn.hamburgerMenuButton);
-        tn.wait.until(ExpectedConditions.visibilityOf(tn.messagingButton));
         tn.hoverOver(tn.financeButton);
-        tn.wait.until(ExpectedConditions.visibilityOf(tn.myFinanceButton));
         tn.myClick(tn.myFinanceButton);
     }
 
@@ -115,6 +112,7 @@ public class FinanceFunctionality {
 
     @Then("The user confirms the balance has decreased.")
     public void theUserConfirmsTheBalanceHasDecreased() {
+        dc.setWait(1);
         String balanceText = dc.totalBalance.getText();
         int actualBalance = Integer.parseInt(balanceText.replaceAll("[^0-9]", ""));
         String firstBalance = ConfigReader.getProperty("balance");
