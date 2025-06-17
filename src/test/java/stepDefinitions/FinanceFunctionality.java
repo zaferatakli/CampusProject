@@ -115,19 +115,12 @@ public class FinanceFunctionality {
 
     @Then("The user confirms the balance has decreased.")
     public void theUserConfirmsTheBalanceHasDecreased() {
-
         String balanceText = dc.totalBalance.getText();
         int actualBalance = Integer.parseInt(balanceText.replaceAll("[^0-9]", ""));
         String firstBalance = ConfigReader.getProperty("balance");
         int firstBalanceInt = Integer.parseInt(firstBalance);
         int expectedBalanceInt = firstBalanceInt - Integer.parseInt(ConfigReader.getProperty("amount"));
         Assert.assertTrue(actualBalance == expectedBalanceInt, "Balance has not decreased as expected!");
-    }
-
-    @When("The user clicks the New Message button in the top right corner of the toolbar")
-    public void theUserClicksTheNewMessageButtonInTheTopRightCornerOfTheToolbar() {
-        dc.wait.until(ExpectedConditions.elementToBeClickable(tn.newMessageIcon));
-        dc.myClick(tn.newMessageIcon);
     }
 
     @When("The user memorizes balance.")
