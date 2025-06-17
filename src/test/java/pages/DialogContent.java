@@ -276,41 +276,38 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "(//div[@class='mat-mdc-select-value'])[3]")
     public WebElement semesterButton;
 
-    @FindBy (xpath = "(//span[contains(text(),'All')])[2]")
+    @FindBy(xpath = "(//span[contains(text(),'All')])[2]")
     public WebElement allButton;
 
-    @FindBy(xpath = "//span[text()=' Assignments ']")
-    public WebElement assignmentsPageTitle;
-
-    @FindBy(xpath = "//ms-icon-button[@icon='file-import']//button")
-    public List<WebElement> submitIcons;
-
-    @FindBy(xpath = "//*[@data-icon='memo-circle-info']")
-    public List<WebElement> homeworkIcons;
+    @FindBy(xpath = "(//ms-icon-button[@icon='file-import']//button)[1]")
+    public WebElement submitIcons;
 
     @FindBy(xpath = "//span[text()='Save as Draft']")
     public WebElement saveAsDraftButton;
 
-    @FindBy(xpath = "#ms-button-20")
-    public WebElement submitButton;
-
-    @FindBy(xpath = "(//strong[text()='11A-Mathematics '])[1]")
-    public WebElement mathematics;
-
-    @FindBy(xpath = "//span[text()='New Submission']")
-    public WebElement newSubmissionButton;
-
-    @FindBy(xpath = "//div[@id='mat-select-value-39']")
+    @FindBy(xpath = "//*[text()='Course']")
     public WebElement courseButton;
 
-    @FindBy(xpath = "//div[@id='mat-select-value-40']")
+    @FindBy(xpath = "//*[text()='Status']")
     public WebElement statusButton;
 
     @FindBy(xpath = "//span[text()='Search']")
     public WebElement searchButton;
 
-    @FindBy (xpath = "//span[text()='Default View']")
+    @FindBy(xpath = "//span[text()='Default View']")
     public WebElement defaultViewButton;
+
+    @FindBy(xpath = "//span[text()='Show by Course']")
+    public WebElement showByCourse;
+
+    @FindBy(xpath = "//span[text()='Show by Type']")
+    public WebElement showByType;
+
+    @FindBy(xpath = "//span[text()='Show by Date']")
+    public WebElement showByDate;
+
+    @FindBy(xpath = "//span[text()='Show by Chart']")
+    public WebElement showByChart;
 
     @FindBy(xpath = "//iframe[@class='tox-edit-area__iframe']")
     public WebElement homeworkIframe;
@@ -319,13 +316,19 @@ public class DialogContent extends ReusableMethods {
     public WebElement inputText;
 
     @FindBy(xpath = "//ms-confirm-button//button")
-    public  WebElement submitSend;
+    public WebElement submitSend;
 
+    @FindBy(xpath = "//span[contains(text(),'Select')]")
+    public WebElement selectButton;
 
+    @FindBy(xpath = "(//strong[text()='11A-Mathematics '])[1]")
+    public WebElement homeworkButton;
 
+    @FindBy(xpath = "//span[text()='New Submission']")
+    public WebElement newSubButton;
 
-
-
+    @FindBy(xpath = "//*[text()='Semester']")
+    public WebElement semesterBtn;
 
     public WebElement getWebElement(String dcElement) {
         switch (dcElement) {
