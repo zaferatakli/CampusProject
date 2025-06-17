@@ -147,6 +147,26 @@ public class FinanceFunctionality {
     @And("The user sees the message of success")
     public void theUserSeesTheMessageOfSuccess() {
         dc.wait.until(ExpectedConditions.visibilityOf(dc.paymentSuccessMessage));
-        dc.verifyContainsText(dc.paymentSuccessMessage,"success");
+        dc.verifyContainsText(dc.paymentSuccessMessage, "success");
+    }
+
+    @Given("The user clicks on the button with three dots in the lower left corner")
+    public void theUserClicksOnTheButtonWithThreeDotsInTheLowerLeftCorner() {
+        Assert.assertTrue(dc.threeDotButton.isDisplayed());
+        dc.myClick(dc.threeDotButton);
+    }
+
+    @And("the user downloads the document by clicking the Excel Export button in the drop-down menu")
+    public void theUserDownloadsTheDocumentByClickingTheExcelExportButtonInTheDropDownMenu() {
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.excelDownload));
+        Assert.assertTrue(dc.excelDownload.isDisplayed(), "Excel download button not displayed");
+        dc.myClick(dc.excelDownload);
+    }
+
+    @And("the user downloads the document by clicking the Pdf Export button in the drop-down menu")
+    public void theUserDownloadsTheDocumentByClickingThePdfExportButtonInTheDropDownMenu() {
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.pdfDownload));
+        Assert.assertTrue(dc.pdfDownload.isDisplayed(), "Pdf download button not displayed");
+        dc.myClick(dc.pdfDownload);
     }
 }

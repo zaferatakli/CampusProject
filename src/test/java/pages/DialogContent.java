@@ -240,6 +240,16 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "//iframe[@title='Secure payment input frame']")
     public WebElement paymentIframe;
 
+    @FindBy(xpath = "(//*[@class='mat-focus-indicator'])[23]")
+    public WebElement threeDotButton;
+
+    @FindBy(xpath = "(//span[@class='mat-mdc-menu-item-text'])[1]")
+    public WebElement excelDownload;
+
+    @FindBy(xpath = "(//span[@class='mat-mdc-menu-item-text'])[2]")
+    public WebElement pdfDownload;
+
+
     // Grading Check Locators
 
     @FindBy(xpath = "//span[@class='mdc-tab__text-label' and normalize-space()='Course Grade']")
