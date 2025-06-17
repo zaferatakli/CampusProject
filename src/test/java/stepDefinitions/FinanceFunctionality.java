@@ -5,10 +5,8 @@ import io.cucumber.java.en.*;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
-import pages.DialogContent;
-import pages.TopNav;
-import utilities.ConfigReader;
-import utilities.GWD;
+import pages.*;
+import utilities.*;
 
 import java.util.List;
 
@@ -28,58 +26,6 @@ public class FinanceFunctionality {
         Assert.assertTrue(GWD.getDriver().getCurrentUrl().equals(ConfigReader.getProperty("myFinanceURL")));
     }
 
-    @When("The user clicks on the student information field")
-    public void theUserClicksOnTheStudentInformationField() {
-        dc.wait.until(ExpectedConditions.visibilityOf(dc.viewButton));
-        dc.myClick(dc.viewButton);
-    }
-
-    @Then("The user clicks the Stripe button")
-    public void theUserClicksTheStripeButton() {
-        dc.wait.until(ExpectedConditions.elementToBeClickable(dc.stripeButton));
-        dc.myClick(dc.stripeButton);
-    }
-
-    @Then("The user views the payment options")
-    public void theUserViewsThePaymentOptions() {
-        dc.wait.until(ExpectedConditions.visibilityOf(dc.payInFullButton));
-        Assert.assertTrue(dc.payInFullButton.isDisplayed(), "Pay in full button are not displayed");
-        Assert.assertTrue(dc.createInstallmentButton.isDisplayed(), "Pay in Create installment options are not displayed");
-
-    }
-
-    @When("The user clicks the Pay option and views the amount information field")
-    public void theUserClicksThePayOptionAndViewsTheAmountInformationField() {
-    }
-
-    @And("The user enters amount and clicks the Pay button")
-    public void theUserEntersAmountAndClicksThePayButton() {
-    }
-
-    @Then("The user views form to enter card details")
-    public void theUserViewsFormToEnterCardDetails() {
-    }
-
-    @When("The user enters card details and completes the payment")
-    public void theUserEntersCardDetailsAndCompletesThePayment() {
-    }
-
-    @Then("The user views a message that the payment was successfully completed")
-    public void theUserViewsAMessageThatThePaymentWasSuccessfullyCompleted() {
-    }
-
-    @Then("The user verifies that the payment has been completed")
-    public void theUserVerifiesThatThePaymentHasBeenCompleted() {
-    }
-
-    @When("The user clicks the New Message button in the top right corner of the toolbar")
-    public void theUserClicksTheNewMessageButtonInTheTopRightCornerOfTheToolbar() {
-    }
-
-    @Then("The user views the received message in the area")
-    public void theUserViewsTheReceivedMessageInTheArea() {
-    }
-
     @And("The page is checked")
     public void thePageIsChecked() {
         dc.verifyContainsText(dc.studentFees, "Students Fees");
@@ -96,7 +42,6 @@ public class FinanceFunctionality {
         dc.verifyContainsText(dc.studentFee, "Student Fee");
     }
 
-
     @And("The user clicks on the following buttons to reach the pay button")
     public void theUserClicksOnTheFollowingButtonsToReachThePayButton(DataTable buttons) {
         List<String> buttonsList = buttons.asList(String.class);
@@ -106,7 +51,6 @@ public class FinanceFunctionality {
             Assert.assertTrue(dc.getWebElement(buttonsList.get(i)).isDisplayed());
             dc.myClick(dc.getWebElement(buttonsList.get(i)));
         }
-
     }
 
     @And("The user enter the payment amount in the Amount field.")
@@ -132,11 +76,8 @@ public class FinanceFunctionality {
         dc.wait.until(ExpectedConditions.visibilityOf(dc.paymentIframe));
         GWD.getDriver().switchTo().frame(dc.paymentIframe);
         dc.wait.until(ExpectedConditions.visibilityOfAllElements(dc.creditCardField));
-        dc.mySendKeys(dc.cardNumberInput, ConfigReader.getProperty("cardNumber")
-                + Keys.TAB + ConfigReader.getProperty("expirationDate")
-                + Keys.TAB + ConfigReader.getProperty("securityCode"));
+        dc.mySendKeys(dc.cardNumberInput, ConfigReader.getProperty("cardNumber") + Keys.TAB + ConfigReader.getProperty("expirationDate") + Keys.TAB + ConfigReader.getProperty("securityCode"));
         GWD.getDriver().switchTo().defaultContent();
-
     }
 
     @And("The user clicks on the stipe payments button")
@@ -168,5 +109,35 @@ public class FinanceFunctionality {
         dc.wait.until(ExpectedConditions.visibilityOf(dc.pdfDownload));
         Assert.assertTrue(dc.pdfDownload.isDisplayed(), "Pdf download button not displayed");
         dc.myClick(dc.pdfDownload);
+    }
+
+    @Then("The user confirms the balance has decreased.")
+    public void theUserConfirmsTheBalanceHasDecreased() {
+
+        String balanceText = dc.totalBalance.getText();
+        int actualBalance = Integer.parseInt(balanceText.replaceAll("[^0-9]", ""));
+        String firstBalance = ConfigReader.getProperty("balance");
+        int firstBalanceInt = Integer.parseInt(firstBalance);
+        int expectedBalanceInt = firstBalanceInt - Integer.parseInt(ConfigReader.getProperty("amount"));
+        Assert.assertTrue(actualBalance == expectedBalanceInt, "Balance has not decreased as expected!");
+    }
+
+    @When("The user clicks the New Message button in the top right corner of the toolbar")
+    public void theUserClicksTheNewMessageButtonInTheTopRightCornerOfTheToolbar() {
+        dc.wait.until(ExpectedConditions.elementToBeClickable(tn.newMessageIcon));
+        dc.myClick(tn.newMessageIcon);
+    }
+
+    @When("The user memorizes balance.")
+    public void theUserMemorizesBalance() {
+        String balance = dc.totalBalance.getText().replaceAll("[^0-9]", "");
+        ConfigReader.saveToConfig("balance", balance);
+    }
+
+    @Then("The user views new installment payment form")
+    public void theUserViewsNewInstallmentPaymentForm() {
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.newInstallmentPlansPageTitle));
+        Assert.assertTrue(dc.newInstallmentPlansPageTitle.isDisplayed(), "Installment payment form is not displayed!");
+        dc.verifyContainsText(dc.newInstallmentPlansPageTitle, "New Installment Plans");
     }
 }

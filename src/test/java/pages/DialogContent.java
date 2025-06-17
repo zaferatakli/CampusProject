@@ -3,7 +3,6 @@ package pages;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.*;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 import utilities.*;
 
 import java.util.List;
@@ -249,6 +248,11 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "(//span[@class='mat-mdc-menu-item-text'])[2]")
     public WebElement pdfDownload;
 
+    @FindBy(xpath = "(//span[@class='mat-focus-indicator'])[17]")
+    public WebElement paymentBackButton;
+
+    @FindBy(xpath = "//span[text()=' New Installment Plans']")
+    public WebElement newInstallmentPlansPageTitle;
 
     // Grading Check Locators
 
@@ -347,7 +351,8 @@ public class DialogContent extends ReusableMethods {
                 return this.payInFullButton;
             case "payButton":
                 return this.payButton;
-
+            case "createInstallmentButton":
+                return this.createInstallmentButton;
         }
         return null;
     }
