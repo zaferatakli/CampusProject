@@ -87,6 +87,7 @@ public class FinanceFunctionality {
 
     @When("The user clicks on their payment in processing")
     public void theUserClicksOnTheirPaymentInProcessing() {
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.processingPayment));
         Assert.assertTrue(dc.processingPayment.isDisplayed(), "Processing payment is not displayed!");
         dc.myClick(dc.processingPayment);
     }
@@ -152,6 +153,7 @@ public class FinanceFunctionality {
 
     @Given("The user clicks on the button with three dots in the lower left corner")
     public void theUserClicksOnTheButtonWithThreeDotsInTheLowerLeftCorner() {
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.threeDotButton));
         Assert.assertTrue(dc.threeDotButton.isDisplayed());
         dc.myClick(dc.threeDotButton);
     }
