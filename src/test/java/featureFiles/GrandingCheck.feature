@@ -8,7 +8,7 @@ Feature: Grading Feature - View Course Grades and Transcripts
   Scenario: Student views grading page with course grade and transcript options
     When The user clicks the Grading button
     Then The user should see Course Grade, Student Transcript, and Transcript by Subject buttons
-    And Each button should be visible and clickable
+    And Each button should be clickable
     And The user can view content after clicking each section
 
   Scenario: Student downloads the Course Grade as a PDF
