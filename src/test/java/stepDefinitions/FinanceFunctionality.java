@@ -22,7 +22,7 @@ public class FinanceFunctionality {
         tn.hoverOver(tn.financeButton);
         tn.wait.until(ExpectedConditions.visibilityOf(tn.myFinanceButton));
         tn.myClick(tn.myFinanceButton);
-        dc.wait.until(ExpectedConditions.urlToBe(ConfigReader.getProperty("myFinanceURL")));
+        tn.wait.until(ExpectedConditions.urlToBe(ConfigReader.getProperty("myFinanceURL")));
         Assert.assertTrue(GWD.getDriver().getCurrentUrl().equals(ConfigReader.getProperty("myFinanceURL")));
     }
 
