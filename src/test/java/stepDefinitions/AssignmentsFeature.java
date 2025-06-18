@@ -6,7 +6,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pages.*;
 import utilities.GWD;
+
 import java.time.Duration;
+
 public class AssignmentsFeature {
     TopNav tn = new TopNav();
     DialogContent dc = new DialogContent();
@@ -17,11 +19,14 @@ public class AssignmentsFeature {
         dc.wait.until(ExpectedConditions.elementToBeClickable(dc.semesterButton));
         dc.action.moveToElement(dc.semesterButton).build().perform();
         dc.jsClick(dc.semesterButton);
+
         dc.wait.until(ExpectedConditions.visibilityOf(dc.allButton));
         dc.wait.until(ExpectedConditions.elementToBeClickable(dc.allButton));
         dc.myClick(dc.allButton);
+
         dc.wait.until(ExpectedConditions.visibilityOf(dc.homeworkButton));
         dc.jsClick(dc.homeworkButton);
+
         dc.wait.until(ExpectedConditions.visibilityOf(dc.newSubButton));
         dc.wait.until(ExpectedConditions.elementToBeClickable(dc.newSubButton));
         dc.myClick(dc.newSubButton);
@@ -35,9 +40,9 @@ public class AssignmentsFeature {
         dc.verifyContainsText(dc.courseButton, "Course");
         dc.verifyContainsText(dc.statusButton, "Status");
         dc.verifyContainsText(dc.semesterBtn, "Semester");
+
         dc.setWait(3);
         dc.jsClick(dc.defaultViewButton);
-
         dc.setWait(3);
 
         dc.jsClick(dc.showByCourse);
@@ -58,7 +63,6 @@ public class AssignmentsFeature {
 
     @And("the user selects the Assignments section")
     public void theUserSelectsTheAssignmentsSection() {
-//        tn.setZoomPercentage(GWD.getDriver(), 75);
         tn.wait.until(ExpectedConditions.visibilityOf(tn.assignmentsMenu));
         Assert.assertTrue(tn.assignmentsMenu.isDisplayed());
         tn.myClick(tn.assignmentsMenu);
@@ -70,9 +74,11 @@ public class AssignmentsFeature {
         dc.wait.until(ExpectedConditions.elementToBeClickable(dc.semesterButton));
         dc.action.moveToElement(dc.semesterButton).build().perform();
         dc.jsClick(dc.semesterButton);
+
         dc.wait.until(ExpectedConditions.visibilityOf(dc.allButton));
         dc.wait.until(ExpectedConditions.elementToBeClickable(dc.allButton));
         dc.myClick(dc.allButton);
+
         dc.wait.until(ExpectedConditions.visibilityOf(dc.submitIcons));
         dc.wait.until(ExpectedConditions.elementToBeClickable(dc.submitIcons));
         dc.jsClick(dc.submitIcons);
@@ -83,12 +89,16 @@ public class AssignmentsFeature {
         dc.wait.until(ExpectedConditions.visibilityOf(dc.inputText));
         dc.wait.until(ExpectedConditions.elementToBeClickable(dc.inputText));
         dc.jsClick(dc.inputText);
+
         dc.mySendKeys(dc.inputText, "Test");
         GWD.getDriver().switchTo().defaultContent();
+
         tn.wait.until(ExpectedConditions.visibilityOf(dc.attachInput));
         tn.myClick(dc.attachInput);
+
         tn.wait.until(ExpectedConditions.visibilityOf(dc.fromMyFiles));
         tn.myClick(dc.fromMyFiles);
+
         tn.action.pause(Duration.ofSeconds(2)).build().perform();
 
         for (int i = 1; i < 3; i++) {
@@ -97,6 +107,7 @@ public class AssignmentsFeature {
         tn.action.sendKeys(Keys.SPACE).build().perform();
         tn.action.pause(Duration.ofSeconds(1)).build().perform();
         tn.myClick(dc.selectButton);
+
         dc.wait.until(ExpectedConditions.visibilityOf(dc.saveAsDraftButton));
         dc.wait.until(ExpectedConditions.elementToBeClickable(dc.saveAsDraftButton));
         dc.jsClick(dc.saveAsDraftButton);

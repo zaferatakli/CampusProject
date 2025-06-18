@@ -1,16 +1,12 @@
 package stepDefinitions;
 
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pages.DialogContent;
 import pages.TopNav;
-import utilities.ReusableMethods;
 
 public class GradingCheck {
     TopNav tn = new TopNav();
@@ -102,12 +98,11 @@ public class GradingCheck {
         tn.pressTab(15);
         tn.pressEnter();
         System.out.println("Robot commands executed: TAB (5 times) and ENTER.");
-
     }
 
     @And("The PDF file should be saved locally")
     public void thePDFFileShouldBeSavedLocally() {
-        System.out.println("The PDF file should be saved locally -.");
+        System.out.println("The PDF file should be saved locally.");
     }
 
     @When("The user clicks the Student Transcript button")

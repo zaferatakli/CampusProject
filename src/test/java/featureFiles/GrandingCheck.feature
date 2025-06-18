@@ -23,7 +23,3 @@ Feature: Grading Feature - View Course Grades and Transcripts
     When The user clicks the Student Transcript button
     Then The Print icon should be visible
     And The user should be able to open and download the PDF
-
-
-
-

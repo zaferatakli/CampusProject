@@ -2,7 +2,6 @@ package stepDefinitions;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pages.DialogContent;
@@ -36,21 +35,25 @@ public class CalendarCourseAccess {
     public void theUserObservesTheScheduledLessonIconsPSECAndTheirExplanations() {
         dc.wait.until(ExpectedConditions.visibilityOf(dc.publishedIcon));
         Assert.assertTrue(dc.publishedIcon.isDisplayed());
+
         dc.wait.until(ExpectedConditions.visibilityOf(dc.publishedDescription));
         Assert.assertTrue(dc.publishedDescription.isDisplayed());
 
         dc.wait.until(ExpectedConditions.visibilityOf(dc.startedIcon));
         Assert.assertTrue(dc.startedIcon.isDisplayed());
+
         dc.wait.until(ExpectedConditions.visibilityOf(dc.startedDescription));
         Assert.assertTrue(dc.startedDescription.isDisplayed());
 
         dc.wait.until(ExpectedConditions.visibilityOf(dc.endedIcon));
         Assert.assertTrue(dc.endedIcon.isDisplayed());
+
         dc.wait.until(ExpectedConditions.visibilityOf(dc.endedDescription));
         Assert.assertTrue(dc.endedDescription.isDisplayed());
 
         dc.wait.until(ExpectedConditions.visibilityOf(dc.cancelledIcon));
         Assert.assertTrue(dc.cancelledIcon.isDisplayed());
+
         dc.wait.until(ExpectedConditions.visibilityOf(dc.cancelledDescription));
         Assert.assertTrue(dc.cancelledDescription.isDisplayed());
     }
@@ -137,7 +140,7 @@ public class CalendarCourseAccess {
         Assert.assertTrue(dc.lessonMessage.isDisplayed());
         if (dc.lessonMessage.getText().contains("not been started")) {
             System.out.println("The lesson has not been started yet.");
-        } else if (dc.lessonMessage.getText().contains("Only moderators can create course event")){
+        } else if (dc.lessonMessage.getText().contains("Only moderators can create course event")) {
             System.out.println("Only moderators can create course event.");
         } else {
             System.out.println("Unexpected message: " + dc.lessonMessage.getText());

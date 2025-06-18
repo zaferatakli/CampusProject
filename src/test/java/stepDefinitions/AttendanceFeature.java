@@ -1,10 +1,7 @@
 package stepDefinitions;
 
-import com.github.javafaker.Faker;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
+import net.datafaker.Faker;
 import pages.DialogContent;
 import pages.TopNav;
 
@@ -12,6 +9,7 @@ public class AttendanceFeature {
     TopNav tn = new TopNav();
     DialogContent dc = new DialogContent();
     Faker faker = new Faker();
+
     @Given("the user selects the Attendance option from the homepage,")
     public void theUserSelectsTheAttendanceOptionFromTheHomepage() {
     }
