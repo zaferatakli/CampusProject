@@ -15,7 +15,7 @@ Feature: Grading Feature - View Course Grades and Transcripts
     Given The user is on the Grading page
     And The user clicks the Print icon
     Then A PDF preview window should appear
-    And The user should be able to click the "Download" icon
+    And The user should be able to click the Download icon
     And The PDF file should be saved locally
 
   Scenario: Student attempts to download Student Transcript
