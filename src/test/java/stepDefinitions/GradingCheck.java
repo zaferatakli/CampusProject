@@ -12,7 +12,7 @@ import pages.DialogContent;
 import pages.TopNav;
 import utilities.ReusableMethods;
 
-public class GradingCheck extends ReusableMethods {
+public class GradingCheck {
     TopNav tn = new TopNav();
     DialogContent dc = new DialogContent();
 
@@ -85,22 +85,22 @@ public class GradingCheck extends ReusableMethods {
 
     @And("The user clicks the Print icon")
     public void theUserClicksThePrintIcon() {
-        myClick(dc.printIcon);
+        dc.myClick(dc.printIcon);
         System.out.println("Print icon clicked.");
     }
 
     @Then("A PDF preview window should appear")
     public void aPDFPreviewWindowShouldAppear() {
         System.out.println("A PDF preview window should appear .");
-        setWait(5);
+        tn.setWait(5);
     }
 
     @And("The user should be able to click the Download icon")
     public void theUserShouldBeAbleToClickTheDownloadIcon() {
         System.out.println("Attempting to handle Download dialog with Robot.");
-        setWait(3);
-        pressTab(15);
-        pressEnter();
+        tn.setWait(3);
+        tn.pressTab(15);
+        tn.pressEnter();
         System.out.println("Robot commands executed: TAB (5 times) and ENTER.");
 
     }
