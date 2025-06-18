@@ -11,6 +11,7 @@ Feature: Profile feature
     Then Clicks on the upload image here and selects the image on your computer
 
   Scenario:Change profile photo
+
     Given Clicks on the profile photo in the top right corner
     When Click on settings and there again click on the profile photo
     And User deletes the current photo and selects the new photo

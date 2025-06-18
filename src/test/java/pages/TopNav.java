@@ -96,6 +96,10 @@ public class TopNav extends ReusableMethods {
     @FindBy(xpath = "//div[@fxlayoutalign='start center']/button")
     public WebElement profileButton;
 
+    @FindBy(xpath = "(//button[@aria-haspopup='menu'])[2]")
+    public WebElement settingsButton;
+
+
     @FindBy(xpath = "//span[text()='Settings']")
     public WebElement profileSettings;
 

@@ -109,4 +109,15 @@ public class ReusableMethods {
             e.printStackTrace();
         }
     }
+    public void pressSpace() {
+        try {
+            robot = new Robot();
+            robot.delay(500);
+            robot.keyPress(KeyEvent.VK_SPACE);
+            robot.keyRelease(KeyEvent.VK_SPACE);
+        } catch (AWTException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
