@@ -12,6 +12,12 @@ Feature: Profile feature
 
   Scenario:Change profile photo
     Given Clicks on the profile photo in the top right corner
-      When Click on settings and there again click on the profile photo
-      Then User deletes the current photo and selects the new photo
-      When Sees that the new photo has changed and exits the settings
+    When Click on settings and there again click on the profile photo
+    And User deletes the current photo and selects the new photo
+    Then Sees that the new photo has changed and exits the settings
+
+  Scenario:Change Theme
+    Given Clicks on the profile photo in the top right corner
+    When The user clicks on Settings and selects the desired theme colour from the Default theme option
+    And This can be done with any two different colours
+    Then After changing the theme, the user sees that the colours have changed and presses the save button
