@@ -337,8 +337,45 @@ public class DialogContent extends ReusableMethods {
 
 
     //Assigments All Features Locators
-    @FindBy(xpath = "(//span[@class='mat-ripple mat-mdc-button-ripple'])[11]")
+    @FindBy(xpath = "((//*[@icon='comments-alt']) //button )[1]")
     public WebElement discussion;
+
+    @FindBy(xpath = "(//*[@data-icon='messages'])[3]")
+    public WebElement chats;
+
+    @FindBy(xpath = "//*[@icon='users']")
+    public WebElement contacts;
+
+    @FindBy(xpath = "(//*[@class='mat-mdc-form-field-infix'])[7]")
+    public WebElement textArea;
+
+    @FindBy(xpath = "//*[@data-icon='paper-plane']")
+    public WebElement ChatSendButton;
+
+    @FindBy(xpath = "//bdi[text()=' Deneme']")
+    public WebElement messageTrue;
+
+    @FindBy(xpath = "(//*[@data-icon='info'])[1]")
+    public WebElement infoAssingment;
+
+    @FindBy(xpath = "(//*[@icon='file-import'])[1]")
+    public WebElement submitAssingment;
+
+    @FindBy(xpath = "(//*[@icon='star'])[1]")
+    public WebElement starAssingment;
+
+    @FindBy(xpath = "//div[@class='mdc-checkbox']")
+    public WebElement showMarked;
+
+    @FindBy(xpath = "(//div[@fxlayoutalign='start center'])[7]")
+    public WebElement centerPush;
+
+
+
+
+
+
+
 
 
 

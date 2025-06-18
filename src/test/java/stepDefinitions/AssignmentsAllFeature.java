@@ -32,42 +32,65 @@ public class AssignmentsAllFeature {
     public void userClicksOnAssignmentLink() {
         tn.myClick(tn.assignmentsMenu);
         tn.wait.until(ExpectedConditions.urlToBe(ConfigReader.getProperty("assignmentsURL")));
-        Assert.assertEquals(GWD.getDriver().getCurrentUrl(),ConfigReader.getProperty("assignmentsURL"));
+        Assert.assertEquals(GWD.getDriver().getCurrentUrl(), ConfigReader.getProperty("assignmentsURL"));
     }
 
     @Given("Student clicks on Discussion icon on the assignments page")
     public void studentClicksOnDiscussionIconOnTheAssignmentsPage() {
         tn.myClick(tn.assignmentsMenu);
-        dc.wait.until(ExpectedConditions.visibilityOf(dc.discussion));
+        //dc.wait.until(ExpectedConditions.elementToBeClickable(dc.discussion));
+        //dc.hoverOver(dc.discussion);
         dc.myClick(dc.discussion);
-        //GWD.getDriver().navigate().back();
     }
 
     @When("Student should see the chat page")
     public void studentShouldSeeTheChatPage() {
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.chats));
+        dc.myClick(dc.chats);
     }
 
     @Then("Student should click on the Contacts icon")
     public void studentShouldClickOnTheContactsIcon() {
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.contacts));
+        dc.myClick(dc.contacts);
     }
 
     @And("Student should send a message")
     public void studentShouldSendAMessage() {
+        dc.mySendKeys(dc.textArea,"Deneme");
+        dc.myClick(dc.ChatSendButton);
     }
 
     @And("The student should be able to see that they sent a message")
     public void theStudentShouldBeAbleToSeeThatTheySentAMessage() {
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.messageTrue));
+        Assert.assertTrue(dc.messageTrue.isDisplayed());
+
     }
 
     @Given("Student clicks on shortcuts on the assignment")
     public void studentClicksOnShortcutsOnTheAssignment() {
+        tn.myClick(tn.assignmentsMenu);
+        dc.myClick(dc.infoAssingment);
+        GWD.getDriver().navigate().back();
+        dc.myClick(dc.submitAssingment);
+        GWD.getDriver().navigate().back();
+        dc.myClick(dc.discussion);
+        GWD.getDriver().navigate().back();
+        dc.myClick(dc.starAssingment);
+        dc.myClick(dc.showMarked);
+        GWD.getDriver().navigate().back();
+
     }
 
     @When("Student clicks anywhere in the assignment other than the icons")
     public void studentClicksAnywhereInTheAssignmentOtherThanTheIcons() {
+        dc.myClick(dc.centerPush);
+        GWD.getDriver().navigate().back();
     }
 
     @Then("Student sees Discussion icon")
     public void studentSeesDiscussionIcon() {
+        Assert.assertTrue(dc.discussion.isDisplayed());
     }
 }
