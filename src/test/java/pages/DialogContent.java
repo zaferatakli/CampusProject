@@ -119,7 +119,6 @@ public class DialogContent extends ReusableMethods {
     @FindBy(tagName = "iframe")
     public WebElement videoIframe;
 
-
     @FindBy(xpath = "//*[contains(text(),'not been started')]")
     public WebElement lessonMessageNotStarted;
 
@@ -329,6 +328,22 @@ public class DialogContent extends ReusableMethods {
 
     @FindBy(xpath = "//*[text()='Semester']")
     public WebElement semesterBtn;
+
+
+
+
+
+
+
+
+    //Assigments All Features Locators
+    @FindBy(xpath = "(//span[@class='mat-ripple mat-mdc-button-ripple'])[11]")
+    public WebElement discussion;
+
+
+
+
+
 
     public WebElement getWebElement(String dcElement) {
         switch (dcElement) {

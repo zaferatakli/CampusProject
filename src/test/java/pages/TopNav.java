@@ -102,6 +102,10 @@ public class TopNav extends ReusableMethods {
     @FindBy(xpath = "//button[@aria-label='Close dialog']")
     public WebElement escapeButton;
 
+    @FindBy(xpath = "//div[@class='cdk-overlay-container']")
+    public WebElement assignmentJobs;
+
+
     public WebElement getWebElement(String tnElement) {
         switch (tnElement) {
             case "sendMessage": return this.sendMessageButton;
