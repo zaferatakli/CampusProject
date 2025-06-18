@@ -104,6 +104,43 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "//span[@class='mat-badge-content mat-badge-active'][text()='C']")
     public List<WebElement> cancelledLessonIcons;
 
+    @FindBy(xpath = "//input[@placeholder='Name']")
+    public WebElement lessonName;
+
+    @FindBy(xpath = " //tbody//td[text()=' Teacher_5 T5' ]")
+    public WebElement instructorName;
+
+    @FindBy(xpath = "(//div[@class='mat-mdc-form-field-infix'])[5]")
+    public WebElement lessonDate;
+
+    @FindBy(xpath = "//span[contains(text(),'Topic')]")
+    public WebElement topicButton;
+
+    @FindBy(xpath = "//span[contains(text(),'Information')]")
+    public WebElement informationButton;
+
+    @FindBy(xpath = "(//span[contains(text(),'Attachments')])[1]")
+    public WebElement attachmentsButton;
+
+    @FindBy(xpath = "//span[contains(text(),'Recent Events')]")
+    public WebElement recentEventsButton;
+
+    @FindBy(xpath = "//*[@formcontrolname='period']")
+    public WebElement lessonPeriod;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     @FindBy(xpath = "//span[text()='Recording']")
     public WebElement recordingButton;
 
@@ -330,13 +367,6 @@ public class DialogContent extends ReusableMethods {
     public WebElement semesterBtn;
 
 
-
-
-
-
-
-
-
     //Assigments All Features Locators
     @FindBy(xpath = "((//*[@icon='comments-alt']) //button )[1]")
     public WebElement discussion;
@@ -372,14 +402,6 @@ public class DialogContent extends ReusableMethods {
     public WebElement centerPush;
 
 
-
-
-
-
-
-
-
-
     // Attendance US 13
 
     @FindBy(xpath = "(//*[@class='mat-ripple mat-mdc-tab-ripple'])[3]")
@@ -393,14 +415,6 @@ public class DialogContent extends ReusableMethods {
 
     @FindBy(xpath = "//span[text()='Select']")
     public WebElement select;
-
-
-
-
-
-
-
-
 
 
     public WebElement getWebElement(String dcElement) {

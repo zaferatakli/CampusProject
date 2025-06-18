@@ -14,6 +14,6 @@ Feature: Course Control on Calender Functionality
 
   Scenario: Student views course info from Weekly Course Plan
     Given the student is on the Weekly Course Plan page
-    When The user selects one of the courses
+    When The user selects one of the courses which has ended
     Then a pop-up should display the course name, instructor, date and time
     And links Information, Topic, Attachments, and Recent Events should be functional
