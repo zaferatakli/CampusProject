@@ -336,9 +336,30 @@ public class DialogContent extends ReusableMethods {
 
 
 
+
     //Assigments All Features Locators
     @FindBy(xpath = "(//span[@class='mat-ripple mat-mdc-button-ripple'])[11]")
     public WebElement discussion;
+
+
+
+    // Attendance US 13
+
+    @FindBy(xpath = "(//*[@class='mat-ripple mat-mdc-tab-ripple'])[3]")
+    public WebElement attendanceExcusesButton;
+
+    @FindBy(xpath = "(//button[@matbadgesize='medium'])[2]")
+    public WebElement addAttendanceExcusesIcon;
+
+    @FindBy(xpath = "//textarea[@placeholder='Message']")
+    public WebElement inputMessageAttendance;
+
+    @FindBy(xpath = "//span[text()='Select']")
+    public WebElement select;
+
+
+
+
 
 
 
