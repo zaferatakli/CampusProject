@@ -1,7 +1,8 @@
 package stepDefinitions;
 
-import com.github.javafaker.Faker;
+
 import io.cucumber.java.en.*;
+import net.datafaker.Faker;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.DialogContent;

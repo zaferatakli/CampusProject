@@ -70,7 +70,7 @@ public class HeaderMenuCheck {
 
     @Then("The user verifies items in the upper right corner")
     public void theUserVerifiesItemsInTheUpperRightCorner() {
-        tn.clickAndClose(tn.notificationButton,dc.dcTitle);
+        tn.clickAndClose(tn.notificationButton, dc.dcTitle);
         tn.wait.until(ExpectedConditions.visibilityOf(tn.newMessageIcon));
         tn.wait.until(ExpectedConditions.elementToBeClickable(tn.newMessageIcon));
         tn.myClick(tn.newMessageIcon);

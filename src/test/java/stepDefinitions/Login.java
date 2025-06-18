@@ -71,8 +71,8 @@ public class Login {
         String expectedEmailMessage = " E-mail is required ";
         String actualEmailMessage = dc.emailRequiredMessage.getText();
         if (actualEmailMessage.equals(expectedEmailMessage)) {
-            dc.verifyContainsText(dc.emailRequiredMessage, " E-mail is required" );
-        } else if (actualEmailMessage.equals(" E-posta gereklidir ")){
+            dc.verifyContainsText(dc.emailRequiredMessage, " E-mail is required");
+        } else if (actualEmailMessage.equals(" E-posta gereklidir ")) {
             dc.verifyContainsText(dc.emailRequiredMessage, " E-posta gereklidir ");
         }
 

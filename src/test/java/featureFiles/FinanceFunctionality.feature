@@ -46,7 +46,6 @@ Feature: Finance Functionality
     And The user clicks on the stripe payments button
     And The user sees the message of success
 
-
   Scenario: Download the payment information from the checkout page to your computer in excel or pdf format
     Given The user clicks on the button with three dots in the lower left corner
     And the user downloads the document by clicking the Excel Export button in the drop-down menu

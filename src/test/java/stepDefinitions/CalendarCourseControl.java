@@ -7,7 +7,6 @@ import pages.DialogContent;
 import pages.TopNav;
 import utilities.ConfigReader;
 
-
 public class CalendarCourseControl {
     TopNav tn = new TopNav();
     DialogContent dc = new DialogContent();
@@ -37,7 +36,6 @@ public class CalendarCourseControl {
         dc.wait.until(ExpectedConditions.visibilityOf(dc.weeklyPlanTableCheck));
         Assert.assertTrue(dc.weeklyPlanTableCheck.isDisplayed());
     }
-
 
     @Then("a pop-up should display the course name, instructor, date and time")
     public void aPopUpShouldDisplayTheCourseNameInstructorDateAndTime() {

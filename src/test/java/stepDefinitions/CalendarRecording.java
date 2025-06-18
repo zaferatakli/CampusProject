@@ -14,6 +14,7 @@ import java.util.List;
 public class CalendarRecording {
     TopNav tn = new TopNav();
     DialogContent dc = new DialogContent();
+
     @Given("The user selects the Calendar option from the top nav menu")
     public void theUserSelectsTheCalendarOptionFromTheTopNavMenu(DataTable calendar) {
         List<String> calendarButton = calendar.asList();
