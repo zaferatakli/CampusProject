@@ -136,6 +136,9 @@ public class CalendarCourseAccess {
 
     @Then("The user is shown detailed information for that specific course")
     public void theUserIsShownDetailedInformationForThatSpecificCourse() {
+        /// Since there is no course with any of the statuses P,S,E,C on the current date on the calendar,
+        /// the error message that appears on the screen is written to the console by clicking on any course.
+        /// therefore a bug ticket (US023-US024_BugTicket.pdf) has been created.
         dc.wait.until(ExpectedConditions.visibilityOf(dc.lessonMessage));
         Assert.assertTrue(dc.lessonMessage.isDisplayed());
         if (dc.lessonMessage.getText().contains("not been started")) {
