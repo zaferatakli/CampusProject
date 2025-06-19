@@ -1,9 +1,12 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.*;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pages.*;
+
+import java.awt.event.KeyEvent;
 
 public class ProfileFeature {
     TopNav tn = new TopNav();
@@ -29,9 +32,12 @@ public class ProfileFeature {
         dc.myClick(dc.uploadPicture);
         dc.wait.until(ExpectedConditions.visibilityOf(dc.uploadPictureIcon));
         dc.myClick(dc.uploadPictureIcon);
-
+        String avatarPath = System.getProperty("user.dir") + "C:\\Users\\User\\IdeaProjects\\CampusProject\\docs\\avatar01";
         tn.setWait(3);
-        tn.pressTab(10);
+        tn.pressTab(5);
+        tn.pressEnter();
+        tn.robot.keyPress(KeyEvent.VK_CONTROL + KeyEvent.VK_V);
+        tn.robot.keyRelease(KeyEvent.VK_CONTROL + KeyEvent.VK_V);
         tn.pressSpace();
         tn.pressEnter();
         dc.myClick(dc.uploadButton);
