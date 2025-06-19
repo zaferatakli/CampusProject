@@ -4,7 +4,6 @@ import io.cucumber.java.en.*;
 import net.datafaker.Faker;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.testng.Assert;
 import pages.*;
 import utilities.*;
 
