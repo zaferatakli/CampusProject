@@ -367,14 +367,6 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "//span[contains(text(),'Submission Attempt')]")
     public WebElement submitAttempt;
 
-
-
-
-
-
-
-
-
     /// Profile Feature Locators
     @FindBy(css = "[class='profile-image avatar huge']")
     public WebElement uploadPicture;

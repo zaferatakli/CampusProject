@@ -42,9 +42,6 @@ public class TopNav extends ReusableMethods {
     @FindBy(xpath = "//span[text()='Send Message']")
     public WebElement sendMessageButton;
 
-    @FindBy(xpath = "(//*[@class='mdc-button__label'])[6]")
-    public List<WebElement> hamburgerMenuSubMenus;
-
     @FindBy(xpath = "//span[text()='My Finance']")
     public WebElement myFinanceButton;
 
@@ -62,9 +59,6 @@ public class TopNav extends ReusableMethods {
 
     @FindBy(xpath = "(//span[@class='mdc-button__label'])[6]")
     public WebElement hamburgerMenuButton;
-
-    @FindBy(xpath = "//span[text()=' S. 11A']")
-    public WebElement studentAccount;
 
     @FindBy(xpath = "(//span[text()='Attendance'])[3]")
     public WebElement attendanceButton;

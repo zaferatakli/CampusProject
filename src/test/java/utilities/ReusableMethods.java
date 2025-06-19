@@ -99,7 +99,7 @@ public class ReusableMethods {
         try {
             for (int i = 1; i <= count; i++) {
                 robot = new Robot();
-                robot.delay(500);
+                robot.delay(300);
                 robot.keyPress(KeyEvent.VK_TAB);
                 robot.keyRelease(KeyEvent.VK_TAB);
             }
@@ -111,7 +111,7 @@ public class ReusableMethods {
     public void pressEnter() {
         try {
             robot = new Robot();
-            robot.delay(500);
+            robot.delay(300);
             robot.keyPress(KeyEvent.VK_ENTER);
             robot.keyRelease(KeyEvent.VK_ENTER);
         } catch (AWTException e) {
@@ -122,7 +122,7 @@ public class ReusableMethods {
     public void pressSpace() {
         try {
             robot = new Robot();
-            robot.delay(500);
+            robot.delay(300);
             robot.keyPress(KeyEvent.VK_SPACE);
             robot.keyRelease(KeyEvent.VK_SPACE);
         } catch (AWTException e) {
