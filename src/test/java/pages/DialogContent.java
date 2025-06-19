@@ -253,7 +253,7 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "//span[@class='mdc-tab__text-label' and contains(., 'Course Grade')]")
     public WebElement courseGradeButton;
 
-    @FindBy(xpath = "//*[@id=\"ms-standard-button-0\"]/button")
+    @FindBy(xpath = "//*[@id='ms-standard-button-0']/button")
     public WebElement printIcon;
 
     @FindBy(xpath = "//button[.//fa-icon/svg[@data-icon='print']]")
