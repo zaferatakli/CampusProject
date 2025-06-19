@@ -42,6 +42,12 @@ public class ReusableMethods {
         action.sendKeys(Keys.ESCAPE).build().perform();
     }
 
+    public void moveToElementAndClick(WebElement element) {
+        wait.until(ExpectedConditions.visibilityOf(element));
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+        action.moveToElement(element).click().build().perform();
+    }
+
     public void mySendKeys(WebElement element, String text) {
         wait.until(ExpectedConditions.visibilityOf(element));
         scrollToElement(element);
