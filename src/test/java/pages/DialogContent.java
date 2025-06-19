@@ -188,6 +188,10 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "(//*[@icon='trash-restore'])[1]")
     public WebElement restoreButton;
 
+
+
+
+
     /// Finance Functionality Locators
     @FindBy(xpath = "//span[contains(text(), 'Pay in full')]")
     public WebElement payInFullButton;
