@@ -5,7 +5,10 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pages.*;
+import utilities.ConfigReader;
 
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 
 public class ProfileFeature {
@@ -32,12 +35,20 @@ public class ProfileFeature {
         dc.myClick(dc.uploadPicture);
         dc.wait.until(ExpectedConditions.visibilityOf(dc.uploadPictureIcon));
         dc.myClick(dc.uploadPictureIcon);
-        String avatarPath = System.getProperty("user.dir") + "C:\\Users\\User\\IdeaProjects\\CampusProject\\docs\\avatar01";
+
+        String avatarPath = System.getProperty("user.dir") + ConfigReader.getProperty("avatarPath1");
+        StringSelection selection = new StringSelection(avatarPath);
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null);
+
         tn.setWait(3);
         tn.pressTab(5);
         tn.pressEnter();
-        tn.robot.keyPress(KeyEvent.VK_CONTROL + KeyEvent.VK_V);
-        tn.robot.keyRelease(KeyEvent.VK_CONTROL + KeyEvent.VK_V);
+        tn.robot.keyPress(KeyEvent.VK_CONTROL);
+        tn.robot.keyPress(KeyEvent.VK_V);
+        tn.robot.keyRelease(KeyEvent.VK_V);
+        tn.robot.keyRelease(KeyEvent.VK_CONTROL);
+        tn.pressEnter();
+        tn.pressTab(5);
         tn.pressSpace();
         tn.pressEnter();
         dc.myClick(dc.uploadButton);
@@ -68,8 +79,19 @@ public class ProfileFeature {
         dc.wait.until(ExpectedConditions.visibilityOf(dc.uploadPictureIcon));
         dc.myClick(dc.uploadPictureIcon);
 
+        String avatarPath = System.getProperty("user.dir") + ConfigReader.getProperty("avatarPath2");
+        StringSelection selection = new StringSelection(avatarPath);
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null);
+
         tn.setWait(3);
-        tn.pressTab(10);
+        tn.pressTab(5);
+        tn.pressEnter();
+        tn.robot.keyPress(KeyEvent.VK_CONTROL);
+        tn.robot.keyPress(KeyEvent.VK_V);
+        tn.robot.keyRelease(KeyEvent.VK_V);
+        tn.robot.keyRelease(KeyEvent.VK_CONTROL);
+        tn.pressEnter();
+        tn.pressTab(5);
         tn.pressSpace();
         tn.pressEnter();
         dc.myClick(dc.uploadButton);
@@ -81,7 +103,6 @@ public class ProfileFeature {
         dc.wait.until(ExpectedConditions.visibilityOf(dc.getImage));
         secondImage = dc.getImage.getDomAttribute("src");
         System.out.println("Second Image Source: " + secondImage);
-
         Assert.assertNotEquals(firstImage, secondImage, "The profile image did not change as expected.");
     }
 
