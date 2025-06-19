@@ -72,7 +72,7 @@ public class AssignmentsAllFeature {
         GWD.getDriver().navigate().back();
         dc.wait.until(ExpectedConditions.visibilityOf(dc.discussion));
         dc.action.moveToElement(dc.discussion).build().perform();
-        dc.clickAndClose(dc.discussion,dc.chats);
+        dc.clickAndClose(dc.discussion, dc.chats);
         dc.moveToElementAndClick(dc.starAssignment);
         dc.moveToElementAndClick(dc.showMarked);
         dc.moveToElementAndClick(dc.starAssignment);
@@ -93,8 +93,43 @@ public class AssignmentsAllFeature {
         Assert.assertTrue(dc.discussion.isDisplayed());
     }
 
-    @Given("the user is on the detail view of the homework")
-    public void theUserIsOnTheDetailViewOfTheHomework() {
+    @When("the user goes to the assignment page, clicks the search button, checks the necessary icons on the page that opens")
+    public void theUserGoesToTheAssignmentPageClicksTheSearchButtonChecksTheNecessaryIconsOnThePageThatOpens() {
+        tn.wait.until(ExpectedConditions.visibilityOf(tn.assignmentsMenu));
+        Assert.assertTrue(tn.assignmentsMenu.isDisplayed());
+
+        tn.myClick(tn.assignmentsMenu);
+        dc.jsClick(dc.searchButton);
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.courseButton));
+        dc.verifyContainsText(dc.courseButton, "Course");
+        dc.verifyContainsText(dc.statusButton, "Status");
+        dc.verifyContainsText(dc.semesterBtn, "Semester");
+    }
+
+    @And("User controls the filtering options in the assignment tab")
+    public void userControlsTheFilteringOptionsInTheAssignmentTab() {
+        dc.setWait(3);
+        dc.jsClick(dc.defaultViewButton);
+        dc.setWait(3);
+
+        dc.jsClick(dc.showByCourse);
+        dc.verifyContainsText(dc.showByCourse, "Show by Course");
+
+        dc.jsClick(dc.showByCourse);
+        dc.jsClick(dc.showByType);
+        dc.verifyContainsText(dc.showByType, "Show by Type");
+
+        dc.jsClick(dc.showByType);
+        dc.jsClick(dc.showByDate);
+        dc.verifyContainsText(dc.showByDate, "Show by Date");
+
+        dc.jsClick(dc.showByDate);
+        dc.jsClick(dc.showByChart);
+        dc.verifyContainsText(dc.showByChart, "Show by Chart");
+    }
+
+    @When("User displays the assignments page")
+    public void userDisplaysTheAssignmentsPage() {
         tn.wait.until(ExpectedConditions.visibilityOf(tn.assignmentsMenu));
         Assert.assertTrue(tn.assignmentsMenu.isDisplayed());
         tn.myClick(tn.assignmentsMenu);
@@ -117,43 +152,31 @@ public class AssignmentsAllFeature {
         dc.verifyContainsText(dc.attachInput, "Attach Files...");
     }
 
-    @When("the user clicks the search icon on the default Assignments view")
-    public void theUserClicksTheSearchIconOnTheDefaultAssignmentsView() {
-        tn.wait.until(ExpectedConditions.visibilityOf(tn.assignmentsMenu));
-        Assert.assertTrue(tn.assignmentsMenu.isDisplayed());
+    @And("The user clicks on the first of the assignments and sends a message")
+    public void theUserClicksOnTheFirstOfTheAssignmentsAndSendsAMessage() {
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.homeworkIframe));
+        GWD.getDriver().switchTo().frame(dc.homeworkIframe);
 
-        tn.myClick(tn.assignmentsMenu);
-        dc.jsClick(dc.searchButton);
-        dc.wait.until(ExpectedConditions.visibilityOf(dc.courseButton));
-        dc.verifyContainsText(dc.courseButton, "Course");
-        dc.verifyContainsText(dc.statusButton, "Status");
-        dc.verifyContainsText(dc.semesterBtn, "Semester");
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.inputText));
+        dc.wait.until(ExpectedConditions.elementToBeClickable(dc.inputText));
+        dc.jsClick(dc.inputText);
 
-        dc.setWait(3);
-        dc.jsClick(dc.defaultViewButton);
-        dc.setWait(3);
+        tn.action.pause(Duration.ofSeconds(2)).build().perform();
 
-        dc.jsClick(dc.showByCourse);
-        dc.verifyContainsText(dc.showByCourse, "Show by Course");
+        dc.mySendKeys(dc.inputText, "Test");
+        GWD.getDriver().switchTo().defaultContent();
 
-        dc.jsClick(dc.showByCourse);
-        dc.jsClick(dc.showByType);
-        dc.verifyContainsText(dc.showByType, "Show by Type");
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.saveAsDraftButton));
+        dc.wait.until(ExpectedConditions.elementToBeClickable(dc.saveAsDraftButton));
+        dc.jsClick(dc.saveAsDraftButton);
 
-        dc.jsClick(dc.showByType);
-        dc.jsClick(dc.showByDate);
-        dc.verifyContainsText(dc.showByDate, "Show by Date");
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.submitSend));
+        dc.wait.until(ExpectedConditions.elementToBeClickable(dc.submitSend));
+        dc.jsClick(dc.submitSend);
 
-        dc.jsClick(dc.showByDate);
-        dc.jsClick(dc.showByChart);
-        dc.verifyContainsText(dc.showByChart, "Show by Chart");
-    }
-
-    @And("the user selects the Assignments section")
-    public void theUserSelectsTheAssignmentsSection() {
-        tn.wait.until(ExpectedConditions.visibilityOf(tn.assignmentsMenu));
-        Assert.assertTrue(tn.assignmentsMenu.isDisplayed());
-        tn.myClick(tn.assignmentsMenu);
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.yesButton));
+        dc.wait.until(ExpectedConditions.elementToBeClickable(dc.yesButton));
+        dc.jsClick(dc.yesButton);
     }
 
     @When("the user clicks the Submit icon for a homework")
@@ -161,7 +184,10 @@ public class AssignmentsAllFeature {
         tn.wait.until(ExpectedConditions.visibilityOf(tn.assignmentsMenu));
         Assert.assertTrue(tn.assignmentsMenu.isDisplayed());
         tn.myClick(tn.assignmentsMenu);
+    }
 
+    @And("the user enters the message content and uploads a file using the Attach Files option")
+    public void theUserEntersTheMessageContentAndUploadsAFileUsingTheAttachFilesOption() {
         dc.wait.until(ExpectedConditions.visibilityOf(dc.semesterButton));
         dc.wait.until(ExpectedConditions.elementToBeClickable(dc.semesterButton));
         dc.action.moveToElement(dc.semesterButton).build().perform();
@@ -171,23 +197,14 @@ public class AssignmentsAllFeature {
         dc.wait.until(ExpectedConditions.elementToBeClickable(dc.allButton));
         dc.myClick(dc.allButton);
 
-        dc.wait.until(ExpectedConditions.visibilityOf(dc.submitIcons));
-        dc.wait.until(ExpectedConditions.elementToBeClickable(dc.submitIcons));
-        dc.jsClick(dc.submitIcons);
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.homeworkButton));
+        dc.jsClick(dc.homeworkButton);
 
-        dc.wait.until(ExpectedConditions.visibilityOf(dc.homeworkIframe));
-        GWD.getDriver().switchTo().frame(dc.homeworkIframe);
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.newSubButton));
+        dc.wait.until(ExpectedConditions.elementToBeClickable(dc.newSubButton));
+        dc.myClick(dc.newSubButton);
+        dc.verifyContainsText(dc.attachInput, "Attach Files...");
 
-        dc.wait.until(ExpectedConditions.visibilityOf(dc.inputText));
-        dc.wait.until(ExpectedConditions.elementToBeClickable(dc.inputText));
-        dc.jsClick(dc.inputText);
-
-        dc.mySendKeys(dc.inputText, "Test");
-        GWD.getDriver().switchTo().defaultContent();
-    }
-
-    @And("the user enters the message content and uploads a file using the Attach Files option")
-    public void theUserEntersTheMessageContentAndUploadsAFileUsingTheAttachFilesOption() {
         tn.wait.until(ExpectedConditions.visibilityOf(dc.attachInput));
         tn.myClick(dc.attachInput);
 

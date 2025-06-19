@@ -22,12 +22,14 @@ Feature:Assignments All Feature Functionality
     When Student clicks anywhere in the assignment other than the icons
     Then Student sees Discussion icon
 
+  Scenario: Searching and Sorting Assignments
+    When the user goes to the assignment page, clicks the search button, checks the necessary icons on the page that opens
+    And User controls the filtering options in the assignment tab
+
+  Scenario: Creating a new submission from the detail page
+    When User displays the assignments page
+    And The user clicks on the first of the assignments and sends a message
+
   Scenario: Submitting homework and managing drafts
     When the user clicks the Submit icon for a homework
     And the user enters the message content and uploads a file using the Attach Files option
-
-  Scenario: Creating a new submission from the detail page
-    Given the user is on the detail view of the homework
-
-  Scenario: Searching and Sorting Assignments
-    When the user clicks the search icon on the default Assignments view
