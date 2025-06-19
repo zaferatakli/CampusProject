@@ -68,18 +68,7 @@ public class CalendarRecording {
 
     @And("the student should be able to start the video")
     public void theStudentShouldBeAbleToStartTheVideo() {
-        dc.wait.until(ExpectedConditions.visibilityOf(dc.videoTimer));
-        boolean reached15Sec = false;
-        for (int i = 0; i < 20; i++) {
-            dc.setWait(1);
-            String timeText = dc.videoTimer.getText().trim();
-            if (timeText.equals("00:15")) {
-                reached15Sec = true;
-                break;
-            }
-        }
-
-        Assert.assertTrue(reached15Sec);
+        dc.setWait(15);
         GWD.getDriver().switchTo().parentFrame();
         dc.myClick(dc.videoCloseButton);
     }

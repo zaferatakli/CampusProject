@@ -9,8 +9,8 @@ import utilities.GWD;
 import java.time.LocalDateTime;
 
 @CucumberOptions(features = {"src/test/java/featureFiles"},
-        glue = {"stepDefinitions"},
-        plugin = {"pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"})
+        glue = {"stepDefinitions", "hooks"},
+        plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"})
 public class ExtendReportRunner extends AbstractTestNGCucumberTests {
 
     @AfterClass

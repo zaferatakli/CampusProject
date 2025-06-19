@@ -54,7 +54,7 @@ public class ConfigReader {
     public static void updateProperty(String keyword) {
         switch (keyword) {
             case "invalidUsername":
-                String invalidUsername = faker.name().username();
+                String invalidUsername = faker.internet().username();
                 properties.setProperty(keyword, invalidUsername);
                 break;
             case "invalidPassword":
