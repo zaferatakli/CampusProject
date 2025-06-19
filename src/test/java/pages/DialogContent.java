@@ -337,12 +337,12 @@ public class DialogContent extends ReusableMethods {
     public WebElement textArea;
 
     @FindBy(xpath = "//*[@data-icon='paper-plane']")
-    public WebElement ChatSendButton;
+    public WebElement chatSendButton;
 
     @FindBy(xpath = "//bdi[text()=' Deneme']")
     public WebElement messageTrue;
 
-    @FindBy(xpath = "(//*[@data-icon='info'])[1]")
+    @FindBy(xpath = "(//*[@icon='info'])[1]")
     public WebElement infoAssignment;
 
     @FindBy(xpath = "(//*[@icon='file-import'])[1]")
@@ -356,6 +356,20 @@ public class DialogContent extends ReusableMethods {
 
     @FindBy(xpath = "(//div[@fxlayoutalign='start center'])[7]")
     public WebElement centerPush;
+
+    @FindBy(xpath = "//span[text()='Description']")
+    public WebElement description;
+
+    @FindBy(xpath = "//span[contains(text(),'Submission Attempt')]")
+    public WebElement submitAttempt;
+
+
+
+
+
+
+
+
 
     /// Profile Feature Locators
     @FindBy(css = "[class='profile-image avatar huge']")

@@ -33,13 +33,14 @@ public class AssignmentsAllFeature {
     @Given("Student clicks on Discussion icon on the assignments page")
     public void studentClicksOnDiscussionIconOnTheAssignmentsPage() {
         tn.myClick(tn.assignmentsMenu);
-        dc.myClick(dc.discussion);
+        dc.jsClick(dc.discussion);
     }
 
     @When("Student should see the chat page")
     public void studentShouldSeeTheChatPage() {
         dc.wait.until(ExpectedConditions.visibilityOf(dc.chats));
-        dc.myClick(dc.chats);
+        dc.action.moveToElement(dc.chats).click().build().perform();
+
     }
 
     @Then("Student should click on the Contacts icon")
@@ -50,8 +51,8 @@ public class AssignmentsAllFeature {
 
     @And("Student should send a message")
     public void studentShouldSendAMessage() {
-        dc.mySendKeys(dc.textArea, "Deneme");
-        dc.myClick(dc.ChatSendButton);
+        dc.action.moveToElement(dc.textArea).click().sendKeys("Deneme").build().perform();
+        dc.action.moveToElement(dc.chatSendButton).click().build().perform();
     }
 
     @And("The student should be able to see that they sent a message")
@@ -63,15 +64,21 @@ public class AssignmentsAllFeature {
     @Given("Student clicks on shortcuts on the assignment")
     public void studentClicksOnShortcutsOnTheAssignment() {
         tn.myClick(tn.assignmentsMenu);
-        dc.myClick(dc.infoAssignment);
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.infoAssignment));
+        dc.action.moveToElement(dc.infoAssignment).click().build().perform();
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.description));
         GWD.getDriver().navigate().back();
-        dc.myClick(dc.submitAssignment);
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.submitAssignment));
+        dc.action.moveToElement(dc.submitAssignment).click().build().perform();
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.submitAttempt));
         GWD.getDriver().navigate().back();
-        dc.myClick(dc.discussion);
-        GWD.getDriver().navigate().back();
-        dc.myClick(dc.starAssignment);
-        dc.myClick(dc.showMarked);
-        GWD.getDriver().navigate().back();
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.discussion));
+        dc.action.moveToElement(dc.discussion).build().perform();
+        dc.clickAndClose(dc.discussion,dc.chats);
+        dc.action.moveToElement(dc.starAssignment).click().build().perform();
+        dc.action.moveToElement(dc.showMarked).click().build().perform();
+        dc.action.moveToElement(dc.starAssignment).click().build().perform();
+        dc.action.moveToElement(dc.showMarked).click().build().perform();
     }
 
     @When("Student clicks anywhere in the assignment other than the icons")
@@ -82,6 +89,8 @@ public class AssignmentsAllFeature {
 
     @Then("Student sees Discussion icon")
     public void studentSeesDiscussionIcon() {
+        dc.action.moveToElement(dc.showMarked).click().build().perform();
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.discussion));
         Assert.assertTrue(dc.discussion.isDisplayed());
     }
 }
