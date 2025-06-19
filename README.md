@@ -1,4 +1,6 @@
-<img src="src/test/resources/logo.png" alt="" width="500" height="500"/>
+<div style="text-align: center;">
+  <img src="src/test/resources/logo.png" alt="Campus Logo" width="500" height="500"/>
+</div>
 
 # 🎓 Campus UI Automation Project / Internship Final Project
 
