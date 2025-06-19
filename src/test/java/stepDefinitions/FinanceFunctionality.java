@@ -3,15 +3,12 @@ package stepDefinitions;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.devtools.v135.layertree.model.StickyPositionConstraint;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pages.*;
 import utilities.*;
 
-import java.awt.event.KeyEvent;
 import java.util.List;
-import java.util.Set;
 
 public class FinanceFunctionality {
     TopNav tn = new TopNav();
@@ -110,23 +107,11 @@ public class FinanceFunctionality {
     public void theUserDownloadsTheDocumentByClickingThePdfExportButtonInTheDropDownMenu() {
         dc.wait.until(ExpectedConditions.visibilityOf(dc.pdfDownload));
         Assert.assertTrue(dc.pdfDownload.isDisplayed(), "Pdf download button not displayed");
-        String myURL=GWD.getDriver().getWindowHandle();
         dc.myClick(dc.pdfDownload);
-
-        dc.setWait(2);
-
-
-
-        Set<String> allWindows = GWD.getDriver().getWindowHandles();
-        for (String window : allWindows) {
-            if (!window.equals(myURL)) {
-                GWD.getDriver().switchTo().window(window);
-                break;
-            }
-        }
-
-        dc.pressTab(12);
+        dc.setWait(5);
+        dc.pressTab(15);
         dc.pressEnter();
+        dc.setWait(2);
         dc.pressEnter();
     }
 
