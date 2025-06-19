@@ -13,9 +13,6 @@ public class ProfileFeature {
     TopNav tn = new TopNav();
     DialogContent dc = new DialogContent();
 
-    public ProfileFeature(){
-    }
-
     @Given("Clicks on the profile photo in the top right corner")
     public void clicksOnTheProfilePhotoInTheTopRightCorner() {
         tn.wait.until(ExpectedConditions.visibilityOf(tn.profileButton));
