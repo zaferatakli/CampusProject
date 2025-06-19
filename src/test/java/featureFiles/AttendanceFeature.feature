@@ -6,8 +6,9 @@ Feature: To excuse absence from a course.
     Then The user verifies login successfully
 
   Scenario: Submitting an Attendance Excuse
-    Given the user selects the Attendance option from the homepage,
-    Then the system navigates the user to the Excuse Submission page,
-    When the user enters a reason for absence and uploads a related document,
-    And proceeds to send the excuse form,
-    Then a confirmation notice is displayed to the user.
+    Given The user navigates to the Attendance section from the homepage
+    When The user clicks the Attendance Excuses button
+    Then The system navigates to the Excuse Submission page
+    And The user clicks the Add Attendance Excuse button
+    When The user enters a reason for absence and uploads a supporting document
+    And Submits the excuse form
