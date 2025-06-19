@@ -5,8 +5,7 @@ import io.cucumber.java.en.*;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
-import pages.DialogContent;
-import pages.TopNav;
+import pages.*;
 import utilities.GWD;
 
 import java.util.List;

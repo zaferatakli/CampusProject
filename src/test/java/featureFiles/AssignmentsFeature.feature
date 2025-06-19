@@ -8,6 +8,7 @@ Feature:Assignments Feature Functionality
 
   Scenario: Submitting homework and managing drafts
     When the user clicks the Submit icon for a homework
+    And the user enters the message content and uploads a file using the Attach Files option
 
   Scenario: Creating a new submission from the detail page
     Given the user is on the detail view of the homework

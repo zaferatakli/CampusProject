@@ -1,6 +1,6 @@
 package utilities;
 
-import com.github.javafaker.Faker;
+import net.datafaker.Faker;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -43,6 +43,7 @@ public class ConfigReader {
         properties.setProperty(key, value);
         saveProperties();
     }
+
     public static void saveToConfigIfAbsent(String key, String value) {
         if (properties.getProperty(key) == null) {
             properties.setProperty(key, value);

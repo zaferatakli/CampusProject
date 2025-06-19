@@ -12,7 +12,7 @@ public class TopNav extends ReusableMethods {
         PageFactory.initElements(GWD.getDriver(), this);
     }
 
-    @FindBy(xpath = "//div[@fxlayout='row']/div/img")
+    @FindBy(xpath = "//div[@fxlayoutalign='end center']//div//img")
     public WebElement homePageLogo;
 
     @FindBy(xpath = "(//span[contains(text(),'Courses')])[1]")
@@ -58,9 +58,9 @@ public class TopNav extends ReusableMethods {
     public WebElement trashButton;
 
     @FindBy(xpath = "//user-message-bell//button")
-    public WebElement  newMessageIcon;
+    public WebElement newMessageIcon;
 
-    @FindBy(xpath = "(//span[@class='mdc-button__label'])[6]") //(//*[@aria-haspopup='menu']//span[@class='mdc-button__label'])[1]
+    @FindBy(xpath = "(//span[@class='mdc-button__label'])[6]")
     public WebElement hamburgerMenuButton;
 
     @FindBy(xpath = "//span[text()=' S. 11A']")
@@ -99,7 +99,6 @@ public class TopNav extends ReusableMethods {
     @FindBy(xpath = "(//button[@aria-haspopup='menu'])[2]")
     public WebElement settingsButton;
 
-
     @FindBy(xpath = "//span[text()='Settings']")
     public WebElement profileSettings;
 
@@ -109,18 +108,26 @@ public class TopNav extends ReusableMethods {
     @FindBy(xpath = "//div[@class='cdk-overlay-container']")
     public WebElement assignmentJobs;
 
-
     public WebElement getWebElement(String tnElement) {
         switch (tnElement) {
-            case "sendMessage": return this.sendMessageButton;
-            case "outboxMessage": return this.outboxButton;
-            case "newMessageIcon": return this.newMessageIcon;
-            case "grading": return this.gradingMenu;
-            case "calendar": return this.calendarButton;
-            case "courses": return this.coursesMenu;
-            case "attendance": return this.attendanceMenu;
-            case "assignments": return this.assignmentsMenu;
-            case "notificationsIcon": return this.notificationButton;
+            case "sendMessage":
+                return this.sendMessageButton;
+            case "outboxMessage":
+                return this.outboxButton;
+            case "newMessageIcon":
+                return this.newMessageIcon;
+            case "grading":
+                return this.gradingMenu;
+            case "calendar":
+                return this.calendarButton;
+            case "courses":
+                return this.coursesMenu;
+            case "attendance":
+                return this.attendanceMenu;
+            case "assignments":
+                return this.assignmentsMenu;
+            case "notificationsIcon":
+                return this.notificationButton;
         }
         return null;
     }

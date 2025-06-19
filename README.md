@@ -1,4 +1,6 @@
-# 🎓 Campus UI Automation Project
+<img src="src/test/resources/logo.png" alt="" width="500" height="500"/>
+
+# 🎓 Campus UI Automation Project / Internship Final Project
 
 ## 📌 Table of Contents
 
@@ -27,6 +29,9 @@ student's perspective to ensure usability and system stability.
 
 The project is developed using **Java**, **Selenium WebDriver**, **Cucumber**, **TestNG**, and the **Page Object Model (
 POM)** structure. User stories, scenarios, and test steps are thoroughly documented.
+
+Note: This project was completed by a team of 9 interns. The project involved working with Agile methodology in a 2-week
+sprint and complied with all Scrum processes.
 
 ---
 
@@ -148,7 +153,7 @@ All dependencies are defined in the `pom.xml` file and managed automatically by 
 | Module      | Number of Stories | Test Status |
 |-------------|-------------------|-------------|
 | Login       | 1                 | ✅ Passed    |
-| Home        | 3                 | ✅ Passed    |
+| Home        | 2                 | ✅ Passed    |
 | Messaging   | 4                 | ✅ Passed    |
 | Finance     | 5                 | ✅ Passed    |
 | Attendance  | 1                 | ✅ Passed    |
@@ -169,27 +174,35 @@ Test results are automatically generated in the following folders:
 ---
 
 ## 💥 Bug Reports
+
 - **US-023 Calendar - Course Status**: The course status and details is not displayed correctly.
 - **US-024 Calendar - Prevent Access to Unstarted Course**: The system allows access to unstarted courses.
 - Bug Report: **src/bugReportsPDF/US023-US024_BugTicket.pdf**
 
-<img src="src/bugGIF/CalenderCourseAccessAndControlBug.gif" alt="" width="800" height="500"/>
+<img src="src/bugGIF/US-023_US-024_CalenderCourseAccessAndControlBug.gif" alt="" width="800" height="500"/>
+
+---
+
+- **US-016, US-017 View Grades and Transcript**: The grading feature does not function as expected.
+- Bug Report: **src/bugReportsPDF/US-16_US-17_GradingFeatureBugTicket.pdf**
+
+<img src="src/bugGIF/US-16_US-17_GradingFeatureBug.gif" alt="" width="800" height="500"/>
 
 ---
 
 ## 👥 Project Team
 
-| Name             | Role                     | Responsible Modules |
-|------------------|--------------------------|---------------------|
-| Zafer Atakli     | Project Lead/QA Engineer | US_01,03,23,24,25   |
-| Tugba Kilic      | QA Engineer              | US_08,09,10         |
-| Nuri Öztürk      | QA Engineer              | US_04,05,06,07      |
-| Rıfat Batır      | QA Engineer              | US_11,12            |
-| Yiğit Çam        | QA Engineer              | US_18,19,20         |
-| Azim Korkmaz     | QA Engineer              | US_21,22            |
-| Mert Can Ozdemir | QA Engineer              | US_16,17            |
-| Sibel Oztemel    | QA Engineer              | US_02,13            |
-| Eren Icinozbebek | QA Engineer              | US_14,15            |
+| Name             | Role                     | Responsible Modules  |
+|------------------|--------------------------|----------------------|
+| Zafer Atakli     | Project Lead/QA Engineer | US_01,02,03,23,24,25 |
+| Tugba Kilic      | QA Engineer              | US_08,09,10          |
+| Nuri Öztürk      | QA Engineer              | US_04,05,06,07       |
+| Rıfat Batır      | QA Engineer              | US_11,12             |
+| Yiğit Çam        | QA Engineer              | US_18,19,20          |
+| Azim Korkmaz     | QA Engineer              | US_21,22             |
+| Mert Can Ozdemir | QA Engineer              | US_16,17             |
+| Sibel Oztemel    | QA Engineer              | US_13                |
+| Eren Icinozbebek | QA Engineer              | US_14,15             |
 
 ---
 

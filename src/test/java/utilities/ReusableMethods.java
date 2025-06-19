@@ -8,6 +8,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
@@ -20,10 +21,12 @@ public class ReusableMethods {
     public Robot robot;
 
     public void myClick(WebElement element) {
+        wait.until(ExpectedConditions.visibilityOf(element));
         wait.until(ExpectedConditions.elementToBeClickable(element));
         scrollToElement(element);
         element.click();
     }
+
     public void myDoubleClick(WebElement element) {
         wait.until(ExpectedConditions.elementToBeClickable(element));
         scrollToElement(element);
@@ -109,6 +112,7 @@ public class ReusableMethods {
             e.printStackTrace();
         }
     }
+
     public void pressSpace() {
         try {
             robot = new Robot();
@@ -119,5 +123,4 @@ public class ReusableMethods {
             e.printStackTrace();
         }
     }
-
 }

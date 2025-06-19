@@ -13,7 +13,7 @@ public class DialogContent extends ReusableMethods {
         PageFactory.initElements(GWD.getDriver(), this);
     }
 
-    /// US-001,003,023,024,025 locators
+    /// US-001, 002, 003, 023, 024, 025 locators
     @FindBy(css = "input[formcontrolname='username']")
     public WebElement usernameField;
 
@@ -86,12 +86,6 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "//mat-panel-description[@class='mat-expansion-panel-header-description']")
     public WebElement lessonMessage;
 
-    @FindBy(xpath = "//span[@class='title dialog-title']")
-    public WebElement popUpLessonTitle;
-
-    @FindBy(xpath = "//span[contains(text(),'Teacher')]")
-    public List<WebElement> lessonTeacherName;
-
     @FindBy(xpath = "//span[@class='mat-badge-content mat-badge-active'][text()='E']")
     public List<WebElement> endedLessonIcons;
 
@@ -127,19 +121,6 @@ public class DialogContent extends ReusableMethods {
 
     @FindBy(xpath = "//*[@formcontrolname='period']")
     public WebElement lessonPeriod;
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     @FindBy(xpath = "//span[text()='Recording']")
     public WebElement recordingButton;
@@ -207,14 +188,7 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "(//*[@icon='trash-restore'])[1]")
     public WebElement restoreButton;
 
-    // Finance Functionality Locators
-
-    @FindBy(xpath = "//button[@matbadgecolor='accent']/span[@class='mat-focus-indicator']")
-    public WebElement viewButton;
-
-    @FindBy(css = "#mat-radio-4-input")
-    public WebElement stripeButton;
-
+    /// Finance Functionality Locators
     @FindBy(xpath = "//span[contains(text(), 'Pay in full')]")
     public WebElement payInFullButton;
 
@@ -224,11 +198,8 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "//span[text()= 'Pay']")
     public WebElement payButton;
 
-    @FindBy(xpath = "input[id='ms-currency-field-0']")
-    public WebElement amountInput;
-
     @FindBy(xpath = "//ms-button[@icon='wallet']/button")
-    public WebElement paymentButton;    // Amount yani ödeme butonu
+    public WebElement paymentButton;
 
     @FindBy(xpath = " //h2[text()=' Pay  $ '] ")
     public WebElement cardPaymentTitle;
@@ -236,17 +207,8 @@ public class DialogContent extends ReusableMethods {
     @FindBy(id = "Field-numberInput")
     public WebElement cardNumberInput;
 
-    @FindBy(css = "#Field-expiryInput")
-    public WebElement cardExpiryDateInput;
-
-    @FindBy(css = "#Field-cvcInput")
-    public WebElement cardCVCInput;
-
-    @FindBy(css = "#Field-countryInput")
-    public WebElement cardCountryInput;
-
     @FindBy(xpath = "//div[@class='StripeElement']/following-sibling::button")
-    public WebElement paymentsButton; // Card bilgilerini girdikten sonra ödeme butonu
+    public WebElement paymentsButton;
 
     @FindBy(xpath = "//div[contains(text(), 'Payment successfully created')]")
     public WebElement paymentSuccessMessage;
@@ -284,14 +246,10 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "(//span[@class='mat-mdc-menu-item-text'])[2]")
     public WebElement pdfDownload;
 
-    @FindBy(xpath = "(//span[@class='mat-focus-indicator'])[17]")
-    public WebElement paymentBackButton;
-
     @FindBy(xpath = "//span[text()=' New Installment Plans']")
     public WebElement newInstallmentPlansPageTitle;
 
-    // Grading Check Locators
-
+    /// Grading Check Locators
     @FindBy(xpath = "//span[@class='mdc-tab__text-label' and contains(., 'Course Grade')]")
     public WebElement courseGradeButton;
 
@@ -307,8 +265,7 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "//span[text()='Transcript by Subject']")
     public WebElement transcriptBySubject;
 
-    // Assigments Feature Locators
-
+    /// Assignments Feature Locators
     @FindBy(xpath = "(//div[@class='mat-mdc-select-value'])[3]")
     public WebElement semesterButton;
 
@@ -366,8 +323,7 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "//*[text()='Semester']")
     public WebElement semesterBtn;
 
-
-    //Assigments All Features Locators
+    /// Assignments All Features Locators
     @FindBy(xpath = "((//*[@icon='comments-alt']) //button )[1]")
     public WebElement discussion;
 
@@ -387,13 +343,13 @@ public class DialogContent extends ReusableMethods {
     public WebElement messageTrue;
 
     @FindBy(xpath = "(//*[@data-icon='info'])[1]")
-    public WebElement infoAssingment;
+    public WebElement infoAssignment;
 
     @FindBy(xpath = "(//*[@icon='file-import'])[1]")
-    public WebElement submitAssingment;
+    public WebElement submitAssignment;
 
     @FindBy(xpath = "(//*[@icon='star'])[1]")
-    public WebElement starAssingment;
+    public WebElement starAssignment;
 
     @FindBy(xpath = "//div[@class='mdc-checkbox']")
     public WebElement showMarked;
@@ -401,7 +357,8 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "(//div[@fxlayoutalign='start center'])[7]")
     public WebElement centerPush;
 
-    @FindBy(css ="[class='profile-image avatar huge']" )
+    /// Profile Feature Locators
+    @FindBy(css = "[class='profile-image avatar huge']")
     public WebElement uploadPicture;
 
     @FindBy(css = "[class='mat-mdc-form-field-icon-suffix']")
@@ -410,16 +367,25 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "//span[text()=' Upload ']")
     public WebElement uploadButton;
 
-    @FindBy(xpath = "//span[text()='Save']")
+    @FindBy(xpath = "//*[text()='Save']")
     public WebElement saveButton;
 
-    @FindBy(xpath = "//div[@class='user-info']")
+    @FindBy(xpath = "//*[@class='profile-image avatar huge']")
     public WebElement image;
+
+    @FindBy(xpath = "//img[@class='avatar-bigger']")
+    public WebElement getImage;
 
     @FindBy(xpath = "//button//span[@class='mdc-button__label'][text()=' Delete ']")
     public WebElement deleteButton;
 
-    // Attendance US 13
+    @FindBy(xpath = "//*[text()=' Close ']")
+    public WebElement closeButton;
+
+    @FindBy(xpath = "//button[@aria-label='Close dialog']")
+    public WebElement escButton;
+
+    /// Attendance Feature Locators
     @FindBy(xpath = "(//*[@class='mat-ripple mat-mdc-tab-ripple'])[3]")
     public WebElement attendanceExcusesButton;
 
@@ -432,6 +398,23 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "//span[text()='Select']")
     public WebElement select;
 
+    @FindBy(xpath = "//span[text()='Default Theme']")
+    public WebElement defaultThemeButton;
+
+    @FindBy(xpath = "//span[text()=' Default Theme ']")
+    public WebElement defaultTheme;
+
+    @FindBy(xpath = "//span[text()=' Purple Theme ']")
+    public WebElement purpleThemeButton;
+
+    @FindBy(xpath = "//span[text()='Purple Theme']")
+    public WebElement purpleTheme;
+
+    @FindBy(xpath = "//span[text()=' Green Theme ']")
+    public WebElement greenThemeButton;
+
+    @FindBy(xpath = "//span[text()='Green Theme']")
+    public WebElement greenTheme;
 
     public WebElement getWebElement(String dcElement) {
         switch (dcElement) {

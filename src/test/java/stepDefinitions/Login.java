@@ -2,7 +2,7 @@ package stepDefinitions;
 
 import io.cucumber.java.en.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import pages.DialogContent;
+import pages.*;
 import utilities.ConfigReader;
 import utilities.GWD;
 
