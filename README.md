@@ -42,27 +42,28 @@ sprint and complied with all Scrum processes.
 ```plaintext
 CampusProject/
 ├── src/
-│   ├── bugGIF/                              # GIFs demonstrating bugs
-│   ├── bugReportsPDF/                       # PDF files for bug reports
 │   ├──── test/
-│   │        ├── java/
-│   │        │   ├── featureFiles/           # .feature files in Gherkin format
-│   │        │   ├── hooks/                  # Cucumber Hooks
-│   │        │   ├── pages/                  # Page Object Model classes
-│   │        │   ├── runners/                # TestNG runners
-│   │        │   ├── stepDefinitions/        # Step definitions
-│   │        │   └── utilities/              # Driver, ConfigReader, etc.
-│   │        │ 
-│   │        └── resources/
-│   │            └── extent.properties       # Report configurations
+│   │      ├── java/
+│   │      │   ├── featureFiles/           # .feature files in Gherkin format
+│   │      │   ├── hooks/                  # Cucumber Hooks
+│   │      │   ├── pages/                  # Page Object Model classes
+│   │      │   ├── runners/                # TestNG runners
+│   │      │   ├── stepDefinitions/        # Step definitions
+│   │      │   └── utilities/              # Driver, ConfigReader, etc.
+│   │      │ 
+│   │      └── resources/
+│   │          └── extent.properties       # Report configurations
 │   │
-│   │
-│   └── testGIF/                             # GIFs for test scenarios
+│   └── testGIF/                           # GIFs for test scenarios
 │
-├── testReports/                             # HTML & PDF reports
-├── configuration.properties                 # Environment configuration
-├── pom.xml                                  # Maven dependencies
-└── README.md                                # Documentation file
+├── docs/                                  # Documentation files
+│   ├── bugGIF/                            # GIFs demonstrating bugs
+│   └── bugReportsPDF/                     # PDF files for bug reports
+│
+├── testReports/                           # HTML & PDF reports
+├── configuration.properties               # Environment configuration
+├── pom.xml                                # Maven dependencies
+└── README.md                              # Documentation file
 ```
 
 ---
@@ -106,9 +107,6 @@ To run all tests:
      mvn test
    ```
 
----
-
-To run specific tests using an XML file, navigate to the related runner file and execute it.
 
 ---
 
@@ -177,18 +175,18 @@ Test results are automatically generated in the following folders:
 
 ## 💥 Bug Reports
 
-- **US-023 Calendar - Course Status**: The course status and details is not displayed correctly.
+- **US-023 Calendar - Course Status**: The course status and details are not displayed correctly.
 - **US-024 Calendar - Prevent Access to Unstarted Course**: The system allows access to unstarted courses.
-- Bug Report: **src/bugReportsPDF/US023-US024_BugTicket.pdf**
+- Bug Report: **docs/bugReportsPDF/US023-US024_BugTicket.pdf**
 
-<img src="src/bugGIF/US-023_US-024_CalenderCourseAccessAndControlBug.gif" alt="" width="800" height="500"/>
+<img src="docs/bugGIF/US-023_US-024_CalenderCourseAccessAndControlBug.gif" alt="" width="800" height="500"/>
 
 ---
 
 - **US-016, US-017 View Grades and Transcript**: The grading feature does not function as expected.
-- Bug Report: **src/bugReportsPDF/US-16_US-17_GradingFeatureBugTicket.pdf**
+- Bug Report: **docs/bugReportsPDF/US-16_US-17_GradingFeatureBugTicket.pdf**
 
-<img src="src/bugGIF/US-16_US-17_GradingFeatureBug.gif" alt="" width="800" height="500"/>
+<img src="docs/bugGIF/US-16_US-17_GradingFeatureBug.gif" alt="" width="800" height="500"/>
 
 ---
 
