@@ -95,6 +95,10 @@ public class AssignmentsAllFeature {
 
     @Given("the user is on the detail view of the homework")
     public void theUserIsOnTheDetailViewOfTheHomework() {
+        tn.wait.until(ExpectedConditions.visibilityOf(tn.assignmentsMenu));
+        Assert.assertTrue(tn.assignmentsMenu.isDisplayed());
+        tn.myClick(tn.assignmentsMenu);
+
         dc.wait.until(ExpectedConditions.visibilityOf(dc.semesterButton));
         dc.wait.until(ExpectedConditions.elementToBeClickable(dc.semesterButton));
         dc.action.moveToElement(dc.semesterButton).build().perform();
@@ -115,6 +119,10 @@ public class AssignmentsAllFeature {
 
     @When("the user clicks the search icon on the default Assignments view")
     public void theUserClicksTheSearchIconOnTheDefaultAssignmentsView() {
+        tn.wait.until(ExpectedConditions.visibilityOf(tn.assignmentsMenu));
+        Assert.assertTrue(tn.assignmentsMenu.isDisplayed());
+
+        tn.myClick(tn.assignmentsMenu);
         dc.jsClick(dc.searchButton);
         dc.wait.until(ExpectedConditions.visibilityOf(dc.courseButton));
         dc.verifyContainsText(dc.courseButton, "Course");
@@ -150,6 +158,10 @@ public class AssignmentsAllFeature {
 
     @When("the user clicks the Submit icon for a homework")
     public void theUserClicksTheSubmitIconForAHomework() {
+        tn.wait.until(ExpectedConditions.visibilityOf(tn.assignmentsMenu));
+        Assert.assertTrue(tn.assignmentsMenu.isDisplayed());
+        tn.myClick(tn.assignmentsMenu);
+
         dc.wait.until(ExpectedConditions.visibilityOf(dc.semesterButton));
         dc.wait.until(ExpectedConditions.elementToBeClickable(dc.semesterButton));
         dc.action.moveToElement(dc.semesterButton).build().perform();
@@ -172,7 +184,10 @@ public class AssignmentsAllFeature {
 
         dc.mySendKeys(dc.inputText, "Test");
         GWD.getDriver().switchTo().defaultContent();
+    }
 
+    @And("the user enters the message content and uploads a file using the Attach Files option")
+    public void theUserEntersTheMessageContentAndUploadsAFileUsingTheAttachFilesOption() {
         tn.wait.until(ExpectedConditions.visibilityOf(dc.attachInput));
         tn.myClick(dc.attachInput);
 
@@ -199,22 +214,5 @@ public class AssignmentsAllFeature {
         dc.wait.until(ExpectedConditions.visibilityOf(dc.yesButton));
         dc.wait.until(ExpectedConditions.elementToBeClickable(dc.yesButton));
         dc.jsClick(dc.yesButton);
-    }
-
-    @And("the user enters the message content and uploads a file using the Attach Files option")
-    public void theUserEntersTheMessageContentAndUploadsAFileUsingTheAttachFilesOption() {
-        tn.wait.until(ExpectedConditions.visibilityOf(dc.attachInput));
-        tn.myClick(dc.attachInput);
-        tn.wait.until(ExpectedConditions.visibilityOf(dc.fromMyFiles));
-        tn.myClick(dc.fromMyFiles);
-        tn.action.pause(Duration.ofSeconds(2)).build().perform();
-
-        for (int i = 1; i < 2; i++) {
-            tn.action.sendKeys(Keys.TAB).build().perform();
-        }
-
-        tn.action.sendKeys(Keys.SPACE).build().perform();
-        tn.action.pause(Duration.ofSeconds(1)).build().perform();
-        tn.myClick(dc.selectButton);
     }
 }
