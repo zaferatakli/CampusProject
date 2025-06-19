@@ -1,4 +1,4 @@
-Feature: Profile feature
+Feature: Profile Management Functionality
 
   Background:
     Given Navigate to Campus
@@ -11,10 +11,11 @@ Feature: Profile feature
     Then Clicks on the upload image here and selects the image on your computer
 
   Scenario:Change profile photo
-
     Given Clicks on the profile photo in the top right corner
     When Click on settings and there again click on the profile photo
     And User deletes the current photo and selects the new photo
+    Given Clicks on the profile photo in the top right corner
+    When Click on settings and there again click on the profile photo
     Then Sees that the new photo has changed and exits the settings
 
   Scenario:Change Theme

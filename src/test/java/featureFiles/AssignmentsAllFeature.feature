@@ -17,7 +17,7 @@ Feature:Assignments All Feature Functionality
         And Student should send a message
         And The student should be able to see that they sent a message
 
-  Scenario: Assignment bölümündeki kısa yollar
+  Scenario: Assignment shortcuts in the section
           Given Student clicks on shortcuts on the assignment
           When Student clicks anywhere in the assignment other than the icons
           Then Student sees Discussion icon

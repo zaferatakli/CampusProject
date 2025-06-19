@@ -5,8 +5,7 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
-import pages.DialogContent;
-import pages.TopNav;
+import pages.*;
 
 public class GradingCheck {
     TopNav tn = new TopNav();

@@ -1,14 +1,9 @@
 package stepDefinitions;
 
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import org.openqa.selenium.interactions.Actions;
+import io.cucumber.java.en.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
-import pages.DialogContent;
-import pages.TopNav;
+import pages.*;
 import utilities.ConfigReader;
 import utilities.GWD;
 
@@ -38,8 +33,6 @@ public class AssignmentsAllFeature {
     @Given("Student clicks on Discussion icon on the assignments page")
     public void studentClicksOnDiscussionIconOnTheAssignmentsPage() {
         tn.myClick(tn.assignmentsMenu);
-        //dc.wait.until(ExpectedConditions.elementToBeClickable(dc.discussion));
-        //dc.hoverOver(dc.discussion);
         dc.myClick(dc.discussion);
     }
 
@@ -57,7 +50,7 @@ public class AssignmentsAllFeature {
 
     @And("Student should send a message")
     public void studentShouldSendAMessage() {
-        dc.mySendKeys(dc.textArea,"Deneme");
+        dc.mySendKeys(dc.textArea, "Deneme");
         dc.myClick(dc.ChatSendButton);
     }
 
@@ -65,22 +58,20 @@ public class AssignmentsAllFeature {
     public void theStudentShouldBeAbleToSeeThatTheySentAMessage() {
         dc.wait.until(ExpectedConditions.visibilityOf(dc.messageTrue));
         Assert.assertTrue(dc.messageTrue.isDisplayed());
-
     }
 
     @Given("Student clicks on shortcuts on the assignment")
     public void studentClicksOnShortcutsOnTheAssignment() {
         tn.myClick(tn.assignmentsMenu);
-        dc.myClick(dc.infoAssingment);
+        dc.myClick(dc.infoAssignment);
         GWD.getDriver().navigate().back();
-        dc.myClick(dc.submitAssingment);
+        dc.myClick(dc.submitAssignment);
         GWD.getDriver().navigate().back();
         dc.myClick(dc.discussion);
         GWD.getDriver().navigate().back();
-        dc.myClick(dc.starAssingment);
+        dc.myClick(dc.starAssignment);
         dc.myClick(dc.showMarked);
         GWD.getDriver().navigate().back();
-
     }
 
     @When("Student clicks anywhere in the assignment other than the icons")
