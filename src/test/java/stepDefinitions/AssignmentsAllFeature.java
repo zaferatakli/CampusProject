@@ -87,6 +87,7 @@ public class AssignmentsAllFeature {
 
     @Then("Student sees Discussion icon")
     public void studentSeesDiscussionIcon() {
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.showMarked));
         dc.moveToElementAndClick(dc.showMarked);
         dc.wait.until(ExpectedConditions.visibilityOf(dc.discussion));
         Assert.assertTrue(dc.discussion.isDisplayed());
