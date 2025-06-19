@@ -12,9 +12,8 @@ import java.time.Duration;
 public class ProfileFeature {
     TopNav tn = new TopNav();
     DialogContent dc = new DialogContent();
-    Robot rbt = new Robot();
 
-    public ProfileFeature() throws AWTException {
+    public ProfileFeature(){
     }
 
     @Given("Clicks on the profile photo in the top right corner")
