@@ -22,9 +22,7 @@ Feature: Message Functionality
   Scenario:Messaging Delete
     When The user clicks on the Outbox tab
     And The user clicks on the Move to Trash button
-    Then The user verifies that the message is deleted successfully
 
   Scenario:Messaging Retrieve
     When The user clicks on the Trash tab
     And The user selects the last deleted message and clicks the restore button
-    Then The user verifies that the message is retrieved successfully

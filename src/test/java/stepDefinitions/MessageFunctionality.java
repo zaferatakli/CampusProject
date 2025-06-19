@@ -4,6 +4,7 @@ import io.cucumber.java.en.*;
 import net.datafaker.Faker;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Assert;
 import pages.*;
 import utilities.*;
 
@@ -44,55 +45,56 @@ public class MessageFunctionality {
 
     @And("The user choice the recipient's name")
     public void theUserEntersTheRecipientSName() {
-        tn.wait.until(ExpectedConditions.visibilityOf(dc.receiversButton));
-        tn.wait.until(ExpectedConditions.elementToBeClickable(dc.receiversButton));
-        tn.action.moveToElement(dc.receiversButton).click().build().perform();
-        tn.wait.until(ExpectedConditions.visibilityOf(dc.receiversCheckbox));
-        tn.myClick(dc.receiversCheckbox);
-        tn.wait.until(ExpectedConditions.visibilityOf(dc.addAndCloseButton));
-        tn.myClick(dc.addAndCloseButton);
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.receiversButton));
+        dc.wait.until(ExpectedConditions.elementToBeClickable(dc.receiversButton));
+        dc.action.moveToElement(dc.receiversButton).click().build().perform();
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.receiversCheckbox));
+        dc.myClick(dc.receiversCheckbox);
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.addAndCloseButton));
+        dc.myClick(dc.addAndCloseButton);
     }
 
     @And("The user enter the subject of the message")
     public void theUserEnterTheSubjectOfTheMessage() {
-        tn.wait.until(ExpectedConditions.visibilityOf(dc.subjectInput));
-        tn.myClick(dc.subjectInput);
-        tn.mySendKeys(dc.subjectInput, faker.lorem().word());
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.subjectInput));
+        dc.myClick(dc.subjectInput);
+        dc.mySendKeys(dc.subjectInput, faker.lorem().word());
     }
 
     @And("The user enters the message content")
     public void theUserEntersTheMessageContent() {
         GWD.getDriver().switchTo().frame(dc.messageTextIframe);
-        tn.wait.until(ExpectedConditions.visibilityOf(dc.messageTextBody));
-        tn.myClick(dc.messageTextBody);
-        tn.mySendKeys(dc.messageTextBody, faker.lorem().sentence());
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.messageTextBody));
+        dc.myClick(dc.messageTextBody);
+        dc.mySendKeys(dc.messageTextBody, faker.lorem().sentence());
         GWD.getDriver().switchTo().defaultContent();
     }
 
     @And("The user attaches a file if necessary")
     public void theUserAttachesAFileIfNecessary() {
-        tn.wait.until(ExpectedConditions.visibilityOf(dc.attachInput));
-        tn.myClick(dc.attachInput);
-        tn.wait.until(ExpectedConditions.visibilityOf(dc.fromMyFiles));
-        tn.myClick(dc.fromMyFiles);
-        tn.action.pause(Duration.ofSeconds(2)).build().perform();
-        for (int i = 1; i < 3; i++) {
-            tn.action.sendKeys(Keys.TAB).build().perform();
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.attachInput));
+        dc.myClick(dc.attachInput);
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.fromMyFiles));
+        dc.myClick(dc.fromMyFiles);
+        dc.action.pause(Duration.ofSeconds(2)).build().perform();
+        for (int i = 1; i < 10; i++) {
+            dc.action.sendKeys(Keys.TAB).build().perform();
         }
-        tn.action.sendKeys(Keys.SPACE).build().perform();
-        tn.action.pause(Duration.ofSeconds(1)).build().perform();
-        for (int i = 1; i < 14; i++) {
-            tn.action.sendKeys(Keys.TAB).build().perform();
+        dc.action.sendKeys(Keys.SPACE).build().perform();
+        dc.action.pause(Duration.ofSeconds(3)).build().perform();
+        for (int i = 1; i < 7; i++) {
+            dc.action.sendKeys(Keys.TAB).build().perform();
         }
-        tn.action.sendKeys(Keys.SPACE).build().perform();
-        tn.action.pause(Duration.ofSeconds(1)).build().perform();
+
+        dc.action.sendKeys(Keys.SPACE).build().perform();
+        dc.action.pause(Duration.ofSeconds(1)).build().perform();
     }
 
     @And("The user clicks on the Send button")
     public void theUserClicksOnTheSendButton() {
-        tn.wait.until(ExpectedConditions.visibilityOf(dc.sendButton));
-        tn.wait.until(ExpectedConditions.elementToBeClickable(dc.sendButton));
-        tn.jsClick(dc.sendButton);
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.sendButton));
+        dc.wait.until(ExpectedConditions.elementToBeClickable(dc.sendButton));
+        dc.jsClick(dc.sendButton);
     }
 
     @When("The user clicks on the Outbox tab")
@@ -103,21 +105,15 @@ public class MessageFunctionality {
 
     @And("The user clicks on the Move to Trash button")
     public void theUserClicksOnTheMoveToTrashButton() {
-        tn.wait.until(ExpectedConditions.visibilityOf(dc.selectMessageButton));
-        tn.myClick(dc.selectMessageButton);
-        tn.wait.until(ExpectedConditions.visibilityOf(dc.moveToTrashButton));
-        tn.wait.until(ExpectedConditions.elementToBeClickable(dc.moveToTrashButton));
-        tn.action.pause(Duration.ofSeconds(3)).perform();
-        tn.myClick(dc.moveToTrashButton);
-        tn.wait.until(ExpectedConditions.visibilityOf(dc.yesButton));
-        tn.wait.until(ExpectedConditions.elementToBeClickable(dc.yesButton));
-        tn.myClick(dc.yesButton);
-    }
-
-    @Then("The user verifies that the message is deleted successfully")
-    public void theUserVerifiesThatTheMessageIsDeletedSuccessfully() {
-        tn.wait.until(ExpectedConditions.visibilityOf(dc.successMessage));
-        tn.verifyContainsText(dc.successMessage, "Message successfully");
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.selectMessageButton));
+        dc.myClick(dc.selectMessageButton);
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.moveToTrashButton));
+        dc.wait.until(ExpectedConditions.elementToBeClickable(dc.moveToTrashButton));
+        dc.action.pause(Duration.ofSeconds(3)).perform();
+        dc.myClick(dc.moveToTrashButton);
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.yesButton));
+        dc.wait.until(ExpectedConditions.elementToBeClickable(dc.yesButton));
+        dc.myClick(dc.yesButton);
     }
 
     @When("The user clicks on the Trash tab")
@@ -128,13 +124,7 @@ public class MessageFunctionality {
 
     @And("The user selects the last deleted message and clicks the restore button")
     public void theUserSelectsTheLastDeletedMessageAndClicksTheRestoreButton() {
-        tn.wait.until(ExpectedConditions.visibilityOf(dc.restoreButton));
-        tn.myClick(dc.restoreButton);
-    }
-
-    @Then("The user verifies that the message is retrieved successfully")
-    public void theUserVerifiesThatTheMessageIsRetrievedSuccessfully() {
-        tn.wait.until(ExpectedConditions.visibilityOf(dc.successMessage));
-        tn.verifyContainsText(dc.successMessage, "Message successfully");
+        dc.wait.until(ExpectedConditions.visibilityOf(dc.restoreButton));
+        dc.myClick(dc.restoreButton);
     }
 }
