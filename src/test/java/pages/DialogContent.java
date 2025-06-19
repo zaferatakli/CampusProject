@@ -401,9 +401,25 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "(//div[@fxlayoutalign='start center'])[7]")
     public WebElement centerPush;
 
+    @FindBy(css ="[class='profile-image avatar huge']" )
+    public WebElement uploadPicture;
+
+    @FindBy(css = "[class='mat-mdc-form-field-icon-suffix']")
+    public WebElement uploadPictureIcon;
+
+    @FindBy(xpath = "//span[text()=' Upload ']")
+    public WebElement uploadButton;
+
+    @FindBy(xpath = "//span[text()='Save']")
+    public WebElement saveButton;
+
+    @FindBy(xpath = "//div[@class='user-info']")
+    public WebElement image;
+
+    @FindBy(xpath = "//button//span[@class='mdc-button__label'][text()=' Delete ']")
+    public WebElement deleteButton;
 
     // Attendance US 13
-
     @FindBy(xpath = "(//*[@class='mat-ripple mat-mdc-tab-ripple'])[3]")
     public WebElement attendanceExcusesButton;
 
