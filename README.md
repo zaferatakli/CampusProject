@@ -1,5 +1,5 @@
 <div style="text-align: center;">
-  <img src="src/test/resources/logo.png" alt="Campus Logo" width="500" height="500"/>
+  <img src="docs/BugFathersTeam.gif" alt="" width="800" height="400"/>
 </div>
 
 # 🎓 Campus UI Automation Project / Internship Final Project
@@ -57,6 +57,8 @@ CampusProject/
 │   └── testGIF/                           # GIFs for test scenarios
 │
 ├── docs/                                  # Documentation files
+│   ├── avatar01/                          # Profile avatars photo
+│   ├── avatar02/                          # Profile avatars photo
 │   ├── bugGIF/                            # GIFs demonstrating bugs
 │   └── bugReportsPDF/                     # PDF files for bug reports
 │
@@ -73,12 +75,13 @@ CampusProject/
 | Technology / Library            | Description                     |
 |---------------------------------|---------------------------------|
 | Java JDK 21                     | Programming language            |
-| Selenium WebDriver 4.32.0       | UI test automation              |
+| Selenium WebDriver 4.33.0       | UI test automation              |
 | Cucumber 7.20.0                 | BDD scenario management         |
 | TestNG 7.10.2                   | Test framework                  |
 | ExtentReports Cucumber7 Adapter | HTML + PDF reporting            |
 | Apache POI 4.1.0                | Excel operations                |
 | JavaFaker 1.0.2                 | Fake data generation            |
+| DataFaker 2.3.0                 | Fake data generation            |
 | Maven                           | Build and dependency management |
 
 ---
@@ -106,7 +109,6 @@ To run all tests:
    ```bash
      mvn test
    ```
-
 
 ---
 
@@ -158,9 +160,9 @@ All dependencies are defined in the `pom.xml` file and managed automatically by 
 | Finance     | 5                 | ✅ Passed    |
 | Attendance  | 1                 | ✅ Passed    |
 | Profile     | 2                 | ✅ Passed    |
-| Grading     | 2                 | ✅ Passed    |
+| Grading     | 2                 | ❌ Failed    |
 | Assignments | 5                 | ✅ Passed    |
-| Calendar    | 3                 | ✅ Passed    |
+| Calendar    | 3                 | ❌ Failed    |
 
 ---
 
@@ -192,17 +194,17 @@ Test results are automatically generated in the following folders:
 
 ## 👥 Project Team
 
-| Name             | Role                     | Responsible Modules  |
-|------------------|--------------------------|----------------------|
-| Zafer Atakli     | Project Lead/QA Engineer | US_01,02,03,23,24,25 |
-| Tugba Kilic      | QA Engineer              | US_08,09,10          |
-| Nuri Öztürk      | QA Engineer              | US_04,05,06,07       |
-| Rıfat Batır      | QA Engineer              | US_11,12             |
-| Yiğit Çam        | QA Engineer              | US_18,19,20          |
-| Azim Korkmaz     | QA Engineer              | US_21,22             |
-| Mert Can Ozdemir | QA Engineer              | US_16,17             |
-| Sibel Oztemel    | QA Engineer              | US_13                |
-| Eren Icinozbebek | QA Engineer              | US_14,15             |
+| Name             | Role                     | Responsible Modules     |
+|------------------|--------------------------|-------------------------|
+| Zafer Atakli     | Project Lead/QA Engineer | US_01,02,03,15,23,24,25 |
+| Tugba Kilic      | QA Engineer              | US_08,09,10             |
+| Nuri Öztürk      | QA Engineer              | US_04,05,06,07,22       |
+| Rıfat Batır      | QA Engineer              | US_11,12                |
+| Yiğit Çam        | QA Engineer              | US_18,19,20             |
+| Azim Korkmaz     | QA Engineer              | US_21                   |
+| Mert Can Ozdemir | QA Engineer              | US_16,17                |
+| Sibel Oztemel    | QA Engineer              | US_13                   |
+| Eren Icinozbebek | QA Engineer              | US_14                   |
 
 ---
 
@@ -222,7 +224,7 @@ Test results are automatically generated in the following folders:
 
 ## 🔗 GitHub Links
 
-* [Main Repository](https://github.com/kullaniciniz/CampusProject)
+* [Main Repository](https://github.com/zaferatakli/CampusProject)
 
 ---
 
