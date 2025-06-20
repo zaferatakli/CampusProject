@@ -128,9 +128,6 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "//button[@title='Play Video']")
     public WebElement playVideoButton;
 
-    @FindBy(xpath = "(//div[@class='vjs-time-tooltip'])[2]")
-    public WebElement videoTimer;
-
     @FindBy(xpath = "(//button[@aria-label='Close dialog'])[2]")
     public WebElement videoCloseButton;
 
@@ -176,9 +173,6 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "//span[text()=' Yes ']")
     public WebElement yesButton;
 
-    @FindBy(xpath = "//mat-panel-description//div[text()='Successfully submitted to review']")
-    public WebElement successMessage;
-
     @FindBy(xpath = "//body[@id='tinymce']")
     public WebElement messageTextBody;
 
@@ -187,10 +181,6 @@ public class DialogContent extends ReusableMethods {
 
     @FindBy(xpath = "(//*[@icon='trash-restore'])[1]")
     public WebElement restoreButton;
-
-
-
-
 
     /// Finance Functionality Locators
     @FindBy(xpath = "//span[contains(text(), 'Pay in full')]")
@@ -276,9 +266,6 @@ public class DialogContent extends ReusableMethods {
     @FindBy(xpath = "(//span[contains(text(),'All')])[2]")
     public WebElement allButton;
 
-    @FindBy(xpath = "(//ms-icon-button[@icon='file-import']//button)[1]")
-    public WebElement submitIcons;
-
     @FindBy(xpath = "//span[text()='Save as Draft']")
     public WebElement saveAsDraftButton;
 
@@ -363,9 +350,6 @@ public class DialogContent extends ReusableMethods {
 
     @FindBy(xpath = "//span[text()='Description']")
     public WebElement description;
-
-    @FindBy(xpath = "//span[contains(text(),'Submission Attempt')]")
-    public WebElement submitAttempt;
 
     /// Profile Feature Locators
     @FindBy(css = "[class='profile-image avatar huge']")
