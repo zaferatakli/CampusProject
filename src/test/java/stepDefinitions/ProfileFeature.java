@@ -1,7 +1,6 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.*;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pages.*;
@@ -60,13 +59,16 @@ public class ProfileFeature {
     public void userDeletesTheCurrentPhotoAndSelectsTheNewPhoto() {
         dc.wait.until(ExpectedConditions.elementToBeClickable(dc.image));
         dc.jsClick(dc.image);
+
         dc.wait.until(ExpectedConditions.visibilityOf(dc.deleteButton));
         dc.wait.until(ExpectedConditions.elementToBeClickable(dc.deleteButton));
+
         dc.myClick(dc.deleteButton);
         dc.myClick(dc.yesButton);
         dc.myClick(dc.closeButton);
         dc.myClick(dc.escButton);
         tn.myClick(tn.coursesMenu);
+
         dc.wait.until(ExpectedConditions.visibilityOf(dc.getImage));
         firstImage = dc.getImage.getDomAttribute("src");
         System.out.println("First Image Source: " + firstImage);
@@ -96,13 +98,17 @@ public class ProfileFeature {
         tn.pressEnter();
         dc.myClick(dc.uploadButton);
         tn.setWait(4);
+
         dc.wait.until(ExpectedConditions.elementToBeClickable(dc.saveButton));
         dc.jsClick(dc.saveButton);
+
         tn.wait.until(ExpectedConditions.visibilityOf(tn.coursesMenu));
         tn.myClick(tn.coursesMenu);
+
         dc.wait.until(ExpectedConditions.visibilityOf(dc.getImage));
         secondImage = dc.getImage.getDomAttribute("src");
         System.out.println("Second Image Source: " + secondImage);
+
         Assert.assertNotEquals(firstImage, secondImage, "The profile image did not change as expected.");
     }
 
