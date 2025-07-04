@@ -6,11 +6,11 @@ Feature: Accessing recording of an ended course
     Then The user verifies login successfully
 
   Scenario: Student watches the recording of an ended course
-    Given  The user selects the Calendar option from the top nav menu
+    Given  The student selects the Calendar option from the top nav menu
       | calendar |
-    When the student navigates back until an ended course is visible
-    And the student clicks on an ended course
-    Then a pop-up with a "Recording" link should appear
-    When the student clicks on the Recording link
-    Then the video player with Play icon should be visible
-    And the student should be able to start the video
+    When The student navigates back until an ended course is visible
+    And The student clicks on an ended course
+    Then A pop-up with a "Recording" link should appear
+    When The student clicks on the Recording link
+    Then The video player with Play icon should be visible
+    And The student should be able to start the video

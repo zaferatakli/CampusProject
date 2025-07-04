@@ -48,6 +48,6 @@ Feature: Finance Functionality
 
   Scenario: Download the payment information from the checkout page to your computer in excel or pdf format
     Given The user clicks on the button with three dots in the lower left corner
-    And the user downloads the document by clicking the Excel Export button in the drop-down menu
+    And The user downloads the document by clicking the Excel Export button in the drop-down menu
     Given The user clicks on the button with three dots in the lower left corner
-    And the user downloads the document by clicking the Pdf Export button in the drop-down menu
+    And The user downloads the document by clicking the Pdf Export button in the drop-down menu

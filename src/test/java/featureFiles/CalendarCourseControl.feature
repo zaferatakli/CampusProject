@@ -8,12 +8,12 @@ Feature: Course Control on Calender Functionality
       | calendar |
 
   Scenario: Scenario: Student cannot access a course that has not started yet
-    When the student clicks on a course that has not started yet
-    Then a warning message "Meeting has not been started yet" should be displayed
-    And the student should not be allowed to enter the course
+    When The student clicks on a course that has not started yet
+    Then A warning message "Meeting has not been started yet" should be displayed
+    And The student should not be allowed to enter the course
 
   Scenario: Student views course info from Weekly Course Plan
-    Given the student is on the Weekly Course Plan page
-    When The user selects one of the courses which has ended
-    Then a pop-up should display the course name, instructor, date and time
-    And links Information, Topic, Attachments, and Recent Events should be functional
+    Given The student is on the Weekly Course Plan page
+    When The student selects one of the courses which has ended
+    Then A pop-up should display the course name, instructor, date and time
+    And The links Information, Topic, Attachments, and Recent Events should be functional

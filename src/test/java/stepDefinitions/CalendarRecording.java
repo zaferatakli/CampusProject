@@ -3,6 +3,7 @@ package stepDefinitions;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pages.*;
@@ -14,7 +15,7 @@ public class CalendarRecording {
     TopNav tn = new TopNav();
     DialogContent dc = new DialogContent();
 
-    @Given("The user selects the Calendar option from the top nav menu")
+    @Given("The student selects the Calendar option from the top nav menu")
     public void theUserSelectsTheCalendarOptionFromTheTopNavMenu(DataTable calendar) {
         List<String> calendarButton = calendar.asList();
 
@@ -23,39 +24,42 @@ public class CalendarRecording {
         }
     }
 
-    @When("the student navigates back until an ended course is visible")
+    @When("The student navigates back until an ended course is visible")
     public void theStudentNavigatesBackUntilAnEndedCourseIsVisible() {
         dc.wait.until(ExpectedConditions.visibilityOf(dc.previousButton));
         dc.wait.until(ExpectedConditions.elementToBeClickable(dc.previousButton));
         dc.wait.until(ExpectedConditions.visibilityOf(dc.weeklyPlanTableCheck));
-        for (int i = 0; i < 10; i++) {
-            if (!dc.endedLessonIcons.isEmpty()) {
+        List<WebElement> endedIcons = dc.getWebElements("endedLessonIcons");
+        while (true){
+            endedIcons = dc.getWebElements("endedLessonIcons");
+            if (!endedIcons.isEmpty()){
                 break;
+            } else {
+                dc.myClick(dc.previousButton);
+                dc.wait.until(ExpectedConditions.visibilityOf(dc.weeklyPlanTableCheck));
+                dc.setWait(1);
             }
-            dc.myClick(dc.previousButton);
-            dc.setWait(1);
         }
-        Assert.assertTrue(!dc.endedLessonIcons.isEmpty());
     }
 
-    @And("the student clicks on an ended course")
+    @And("The student clicks on an ended course")
     public void theStudentClicksOnAnEndedCourse() {
         dc.jsClick(dc.getWebElements("endedLessonIcons").get(0));
     }
 
-    @Then("a pop-up with a {string} link should appear")
+    @Then("A pop-up with a {string} link should appear")
     public void aPopUpWithALinkShouldAppear(String recordingText) {
         dc.wait.until(ExpectedConditions.visibilityOf(dc.recordingButton));
         dc.wait.until(ExpectedConditions.elementToBeClickable(dc.recordingButton));
         Assert.assertTrue(dc.recordingButton.getText().contains(recordingText));
     }
 
-    @When("the student clicks on the Recording link")
+    @When("The student clicks on the Recording link")
     public void theStudentClicksOnTheRecordingLink() {
         dc.myClick(dc.recordingButton);
     }
 
-    @Then("the video player with Play icon should be visible")
+    @Then("The video player with Play icon should be visible")
     public void theVideoPlayerWithPlayIconShouldBeVisible() {
         dc.wait.until(driver -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
         dc.wait.until(ExpectedConditions.visibilityOfAllElements(dc.videoIframe));
@@ -66,7 +70,7 @@ public class CalendarRecording {
         dc.myClick(dc.playVideoButton);
     }
 
-    @And("the student should be able to start the video")
+    @And("The student should be able to start the video")
     public void theStudentShouldBeAbleToStartTheVideo() {
         dc.setWait(15);
         GWD.getDriver().switchTo().parentFrame();

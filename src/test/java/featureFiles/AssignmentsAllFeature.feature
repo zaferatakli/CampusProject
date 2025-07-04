@@ -23,7 +23,7 @@ Feature:Assignments All Feature Functionality
     Then Student sees Discussion icon
 
   Scenario: Searching and Sorting Assignments
-    When the user goes to the assignment page, clicks the search button, checks the necessary icons on the page that opens
+    When The user goes to the assignment page, clicks the search button, checks the necessary icons on the page that opens
     And User controls the filtering options in the assignment tab
 
   Scenario: Creating a new submission from the detail page
@@ -31,5 +31,5 @@ Feature:Assignments All Feature Functionality
     And The user clicks on the first of the assignments and sends a message
 
   Scenario: Submitting homework and managing drafts
-    When the user clicks the Submit icon for a homework
-    And the user enters the message content and uploads a file using the Attach Files option
+    When The user clicks the Submit icon for a homework
+    And The user enters the message content and uploads a file using the Attach Files option

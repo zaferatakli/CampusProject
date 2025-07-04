@@ -93,7 +93,7 @@ public class AssignmentsAllFeature {
         Assert.assertTrue(dc.discussion.isDisplayed());
     }
 
-    @When("the user goes to the assignment page, clicks the search button, checks the necessary icons on the page that opens")
+    @When("The user goes to the assignment page, clicks the search button, checks the necessary icons on the page that opens")
     public void theUserGoesToTheAssignmentPageClicksTheSearchButtonChecksTheNecessaryIconsOnThePageThatOpens() {
         tn.wait.until(ExpectedConditions.visibilityOf(tn.assignmentsMenu));
         Assert.assertTrue(tn.assignmentsMenu.isDisplayed());
@@ -179,14 +179,14 @@ public class AssignmentsAllFeature {
         dc.jsClick(dc.yesButton);
     }
 
-    @When("the user clicks the Submit icon for a homework")
+    @When("The user clicks the Submit icon for a homework")
     public void theUserClicksTheSubmitIconForAHomework() {
         tn.wait.until(ExpectedConditions.visibilityOf(tn.assignmentsMenu));
         Assert.assertTrue(tn.assignmentsMenu.isDisplayed());
         tn.myClick(tn.assignmentsMenu);
     }
 
-    @And("the user enters the message content and uploads a file using the Attach Files option")
+    @And("The user enters the message content and uploads a file using the Attach Files option")
     public void theUserEntersTheMessageContentAndUploadsAFileUsingTheAttachFilesOption() {
         dc.wait.until(ExpectedConditions.visibilityOf(dc.semesterButton));
         dc.wait.until(ExpectedConditions.elementToBeClickable(dc.semesterButton));
